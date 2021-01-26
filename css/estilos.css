@@ -194,14 +194,82 @@
 	padding-bottom:2em;
 }
 .container-principal .titulo-oferta{
-	background: rgb(180, 175, 175);
     display: flex;
     justify-content: space-around;
 	padding: 10px;
 	border: 1px solid black;
+	background-image: linear-gradient(to top right, rgba(0,0,0,.9), rgba(0,0,25,.55), rgba(0,0,0,.9)), url(https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+	background-size: 120%, cover;
+	margin-bottom: 0;  
 }
-.container-principal .ver{
-	color:red;
+
+h2{
+  text-transform: uppercase;
+  font: 10vw/1.5 'Volkhov', serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+  
+  color: #ddd;
+  text-shadow: 0 0 .08em red;
+  
+  animation: blinking 1.5s linear infinite;
+}
+
+@media (max-width: 600px){
+  h2{
+    font-size: 55px;
+  }
+}
+
+@keyframes blinking{
+  0%{
+    text-shadow: 0 0 .115em red
+  }
+  4%{
+    text-shadow: 0 0 .115em rgba(255,0,0,.1)
+  }
+  8%{
+    text-shadow: 0 0 .115em red
+  }
+  12%{
+    text-shadow: 0 0 .115em rgba(255,0,0,.1)
+  }
+  16%{
+    text-shadow: 0 0 .115em red
+  }
+  20%{
+    text-shadow: 0 0 .115em red
+  }
+  24%{
+    text-shadow: 0 0 .115em red
+  }
+  28%{
+    text-shadow: 0 0 .115em red
+  }
+  32%{
+    text-shadow: 0 0 .115em transparent
+  }
+  34%{
+    text-shadow: 0 0 .115em rgba(255,0,0,.1)
+  }
+  45%{
+    text-shadow: 0 0 .115em red
+  }
+  55%{
+    text-shadow: 0 0 .115em red
+  }
+  66%{
+    text-shadow: 0 0 .115em red
+  }
+  98%{
+    text-shadow: 0 0 .115em red
+  }
+  99%{
+    text-shadow: 0 0 .115em red
+  }
+  100%{
+    text-shadow: 0 0 .115em red
+  }
 }
 .container-principal .producto{
 	text-align: center;
@@ -253,7 +321,7 @@
 	display:flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	background:#1b1f4e;
+	background-image: linear-gradient(to top right, rgba(0,0,0,.9), rgba(0,0,25,.55), rgba(0,0,0,.9)), url(https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
 	padding-bottom:2em;
 }
 
