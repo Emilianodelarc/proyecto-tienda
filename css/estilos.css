@@ -9,7 +9,7 @@
 	font-family: 'Nunito', cursive;
 	
 }
-
+/*------ Nav------*/
 nav {
 	padding: 20px 0 40px 0;
 	background: #f8f8f8;
@@ -51,14 +51,7 @@ a:hover {
 	vertical-align: middle;
 	white-space: nowrap;
 }
-  
-
-.logo-menu{
-	display:flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
+/*----------// nav------*/
 
 /*----- Carrito ----------*/
 /*------------------------*/
@@ -234,6 +227,7 @@ h2{
     text-shadow: 0 0 .115em red
   }
 }
+/*------galeria productos-----*/
 .container-principal .producto{
 	text-align: center;
 	padding:20px;
@@ -304,6 +298,7 @@ h2{
 	background-image: linear-gradient(to top right, rgba(0,0,0,.9), rgba(0,0,25,.55), rgba(0,0,0,.9)), url(https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
 	padding-bottom:2em;
 }
+/*-------// galeria-----*/
 /*--/envio-grids--*/
 .envio-gd {
     background: #080808;
@@ -439,7 +434,7 @@ h2{
     background: #eff1f1;
 }
 
-/* footer navigation */
+/* footer navegacion */
 .footer_gridf_list li {
     list-style: none;
 }
@@ -478,7 +473,7 @@ h3.sub-headf {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.29);
 }
 
-/* //footer navigation */
+/* //footer navegacion */
 .move-top span {
     color: #212529;
     text-align: center;
@@ -582,6 +577,7 @@ h3.sub-headf {
 }
 /*--//footer --*/
 
+/*-----agregar carrito---*/
 .producto .agregar-carrito{
 	text-decoration: none;
 	color: white;
@@ -603,6 +599,8 @@ h3.sub-headf {
 .producto .precio-desc{
 	color: red;
 }
+/*-------//agregar carrito----*/
+/*-----Responsive-----*/
 @media screen and (min-width: 768px){
 	.btn-menu{
 		display:none;
