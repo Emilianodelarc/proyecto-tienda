@@ -1,5 +1,5 @@
-var queProducto = prompt("agregar carrito").toLowerCase();
-var otroProducto = prompt("desea agregarotro producto").toLowerCase();
+//var queProducto = prompt("agregar carrito").toLowerCase();
+//var otroProducto = prompt("desea agregarotro producto").toLowerCase();
 
 
 var items = [];
