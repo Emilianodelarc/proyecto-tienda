@@ -13,7 +13,7 @@
 	</head>
 	<body class="body-index">
 		<header class="header__index">
-			<nav class="container">
+			<nav class="container-fluid nav">
 				<ul class="navbar-left">
 					<li>
 						<a href="index.html">Inicio</a>
@@ -21,16 +21,22 @@
 					<li>
 						<a href="contacto.html">Contacto</a>
 					</li>
+					<li>
+						<a href="#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
+					</li>
+					<li>
+						<a href="#login"><i class="fa fa-user-circle-o"></i>Login</a>
+					</li>
 				</ul> 
 				<ul class="navbar-right">
 					<li>
-						<a href="#" id="cart">
+						<a href="#" class="dropdown" id="cart">
 							<i class="fa fa-shopping-cart"></i>Cart <span class="badge">0</span>
 						</a>
 					</li>
 				</ul> 
 			</nav> 
-			<div class="container">
+			<div class="container dropdown-content">
 				<div class="shopping-cart">
 					<div class="shopping-cart-header">
 						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">0</span>
@@ -41,15 +47,17 @@
 					</div> 
 				  <a href="#" class="button">Comprar</a>
 				</div> 
-			</div> 
-			<div class="banner">
-				<ul class="banner-ul">
-					<li class="banner-li"><img src="img/img (1).jpg" alt="" class="banner-img"></li>
-					<li class="banner-li"><img src="img/img (2).jpg" alt="" class="banner-img"></li>
-					<li class="banner-li"><img src="img/img (3).jpg" alt="" class="banner-img"></li>
-				</ul>
-				<div class="banner-content">
-					<h1 class="banner-titulo-texto">ENCONTRA LO QUE BUSCAS</h1>
+			</div>
+			<div class="banner-info container">
+				<div class="row">
+					<div class="col-lg-5 banner-left-info-1">
+						<h3>El tictac de los relojes parece <span>un ratón que roe el tiempo.</span></h3>
+						<a href="#black" class="btn shop">Tienda</a>
+					</div>
+	
+					<div class="col-lg-7 banner-img">
+						<img src="img/1.png" alt="part image" class="img-fluid imagen">
+					</div>
 				</div>
 			</div>
 		</header>
@@ -167,6 +175,84 @@
 								<a class="cerrar" href="#gallery">&times;</a>
 							</div>
 						</div>
+						<!-- popup-->
+						<div id="regis" class="popup-efecto">
+							<div class="popup">
+								<a class="close" href="#gallery">&times;</a>
+								<form action="#" method="post">
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="text1" id="text1" type="text" value="" placeholder="Nombre" required="">
+										</div>
+									</div>
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="text1" id="text1" type="email" value="" placeholder="example@example.com" required="">
+										</div>
+									</div>
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="text1" id="text3" type="text" value="" placeholder="telefono" required="">
+										</div>
+									</div>
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="password" id="myInput" type="Password" placeholder="Password">
+										</div>
+									</div>
+									<div class="entrada-datos">
+										<button type="submit" class="btn">Registrarse</button>
+									</div>
+									<div class="list-login-bottom text-center mt-lg-5 mt-4">
+										<a href="#" class="">*Al hacer clic en Registrarse, acepta los términos</a>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- //popup -->
+						<!-- popup-->
+						<div id="login" class="popup-efecto">
+							<div class="popup">
+								<a class="close" href="#gallery">&times;</a>
+								<form action="#" method="post">
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="text1" id="text1" type="text" value="" placeholder="Nombre" required="">
+										</div>
+									</div>
+									<div class="field-group">
+										<div class="entrada-datos">
+											<input name="password" id="myInput" type="Password" placeholder="Password">
+										</div>
+									</div>
+									<div class="entrada-datos">
+										<button type="submit" class="btn">Enviar</button>
+									</div>
+									<ul class="lista-login">
+										<li>
+											<label>
+												<input type="checkbox">
+												Mantenerse conectado
+											</label>
+										</li>
+										<li>
+											<a href="#" class="text-right">Olvido su contraseña?</a>
+										</li>
+										<li class="clearfix"></li>
+									</ul>
+									<ul class="lista-login-bottom">
+										<li class="">
+											<a href="#regis" class="">No tiene cuenta?</a>
+										</li>
+										<li class="">
+											<a href="#" class="text-right">Necesita ayuda?</a>
+										</li>
+										<li class="clearfix"></li>
+									</ul>
+								</form>
+							</div>
+						</div>
+						<!-- //popup -->
 					</div>
 				</div>
 			</div>
@@ -300,7 +386,7 @@
 				</div>
 			</div>
 		</section>
-		<footer class="footer_agileinfo_topf py-5">
+		<footer class="footer_agileinfo_topf">
 			<div class="container-footer py-md-5">
 				<div class="row">
 					<div class="col-lg-3 footer_gridf mt-lg-5">
