@@ -1,3 +1,4 @@
+
 //var queProducto = prompt("agregar carrito").toLowerCase();
 //var otroProducto = prompt("desea agregarotro producto").toLowerCase();
 
