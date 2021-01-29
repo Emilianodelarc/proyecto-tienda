@@ -75,29 +75,6 @@ a:hover {
 .shopping-cart-items {
   padding-top: 20px;
 }
-li {
-  margin-bottom: 18px;
-}
-
-img {
-  float: left;
-  margin-right: 12px;
-}
-
-.item-name {
-  display: block;
-  padding-top: 10px;
-  font-size: 16px;
-}
-
-.item-price {
-  color: #6394f8;
-  margin-right: 8px;
-}
-
-.item-quantity {
-  color: #abb0be;
-}
 .shopping-cart:after {
   bottom: 100%;
   left: 89%;
@@ -132,13 +109,6 @@ img {
 
 .button:hover {
   background: lighten(#6394f8, 3%);
-}
-
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /*------------------------*/
