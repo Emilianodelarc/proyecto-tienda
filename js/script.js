@@ -1,103 +1,81 @@
-
-//var queProducto = prompt("agregar carrito").toLowerCase();
-//var otroProducto = prompt("desea agregarotro producto").toLowerCase();
-
-
-var items = [];
-    switch (queProducto){
-        case "reloj iwc schaffhausen":
-            precio = 549
-            items.push(precio)
-        break;
-        case "reloj dom time":
-            precio1 = 4095
-            items.push(precio1)
-        break;
-        case "reloj crrju":
-            precio2 = 799
-            items.push(precio2)
-        break;
-        case "reloj monaco":
-            precio3 = 1175
-            items.push(precio3)
-        break;
-        case "reloj tourbillon":
-            precio4 = 999
-            items.push(precio4)
-        break;
-        case "reloj gues":
-            precio5 = 1299
-            items.push(precio5)
-        break;
-        case "reloj tommy Hilfiger":
-            precio6 = 649
-            items.push(precio6)
-        break; 
-        default:
-            console.log( "ese producto no se encuentra");
-    }
-    switch (otroProducto){
-        case "reloj iwc schaffhausen":
-            precio = 549
-            items.push(precio)
-        break;
-        case "reloj dom time":
-            precio11 = 4095
-            items.push(precio11)
-        break;
-        case "reloj crrju":
-            precio22 = 799
-            items.push(precio22)
-        break;
-        case "reloj monaco":
-            precio33 = 1175
-            items.push(precio33)
-        break;
-        case "reloj tourbillon":
-            precio44 = 999
-            items.push(precio44)
-        break;
-        case "reloj gues":
-            precio55 = 1299
-            items.push(precio55)
-        break;
-        case "reloj tommy hilfiger":
-            precio66 = 649
-            items.push(precio6)
-        break; 
-        default:
-            precio77 = 0
-            items.push(precio77);
-    }
-
-
-function Carrito (producto, precio){
-    this.producto = producto;
-    this.precio = precio;
+(function(){
+ 
+    $("#cart").on("click", function() {
+      $(".shopping-cart").fadeToggle( "fast");
+    });
     
+  })();
+
+  function capturarUsuario(){
+      function Persona(nombre, password){
+          this.persona = persona;
+          this.password = password;
+      }
+      nombre = document.getElementById('nombre').value;
+      //console.log(nombre);
+      password = document.getElementById('contraseña').value;
+      //console.log(password);
+
+      localStorage.setItem("nombre", nombre);
+      localStorage.setItem("contraseña", password);
+ 
+
+      nuevoUsuario = new Persona (nombre, password);
+      //agregarUsu();
 }
 
-          
-var myCarrito = new Carrito  (queProducto, items[0]);
+    //usuario = [];
 
-console.log(myCarrito);
-
-var myCarrito2 = new Carrito (otroProducto, items[1]);
-console.log(myCarrito2);
-
-    function total(){
-
-        var total = 0;
-        items.forEach((pr) => console.log("Producto " + (pr)));
-        for (var i of items){
-            total += i;
-
-            
-        }
-            return total / 1.21;
-        
+    /*function agregarUsu(){
+        usuario.push(nuevoUsuario);
+        console.log(usuario);
     }
-            console.log(" subtotal(S/iva): " + total());
-            console.log(" su total es  $" + items.reduce((acc, el) => acc + el, 0))
 
+    usuarioJSON = JSON.stringify(usuario);*/
 
+    
+    
+    function capturar(num){
+        //console.log("capturado")
+        
+        function Producto (imagen, titulo,precio){
+            this.imagen = imagen;
+            this.titulo = titulo;
+            this.precio = precio;
+        }
+        imagenCapturar = document.getElementById("imagen").src;
+        console.log(imagenCapturar);
+        tituloCapturar = document.getElementById("titulo-pro").textContent;
+        console.log(tituloCapturar);
+        precioCapturar = document.getElementById("precio-des").textContent;
+        console.log(precioCapturar);
+        
+        nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCapturar);
+        console.log(nuevoProducto);
+        agregar();
+    }
+    
+    var baseDatos = [];
+    function agregar(){
+        baseDatos.push(nuevoProducto);
+        console.log(baseDatos);
+        document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+'/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCapturar+'</span></li>';
+        
+        /*productoListaJSON = JSON.stringify(nuevoProducto);
+        nombreUsu= localStorage.getItem('nombre');
+        
+        localStorage.setItem("carrito_" + nombreUsu, productoListaJSON);
+        
+    };
+    function entrar(){
+
+           console.log("Terminá tu compra! Este es tu carrito:");
+           console.log(JSON.parse(localStorage.getItem('carrito_emiliano')));
+
+           listaNoTer = JSON.parse(localStorage.getItem('carrito_emiliano'));
+
+           document.getElementById('lista').innerHTML = listaNoTer;*/
+
+       
+}
+    
