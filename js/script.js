@@ -6,8 +6,25 @@
     
   })();
 
+const boton = document.querySelectorAll('button#agregar-carrito');
+
+    boton.forEach(function (item) {
+    
+    item.addEventListener("click", capturar);
+});
+
+
+
+
+function sumar(){
+    total = document.getElementById('total').textContent;
+    
+}
+var botonr = document.getElementById('registro')
+botonr.addEventListener('click', capturarUsuario);
+
   function capturarUsuario(){
-      function Persona(nombre, password){
+      function Persona(persona, password){
           this.persona = persona;
           this.password = password;
       }
@@ -22,7 +39,7 @@
 
       nuevoUsuario = new Persona (nombre, password);
       //agregarUsu();
-}
+    }
 
     //usuario = [];
 
@@ -35,7 +52,7 @@
 
     
     
-    function capturar(num){
+    function capturar(){
         //console.log("capturado")
         
         function Producto (imagen, titulo,precio){
@@ -58,24 +75,22 @@
     var baseDatos = [];
     function agregar(){
         baseDatos.push(nuevoProducto);
-        console.log(baseDatos);
-        document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+'/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCapturar+'</span></li>';
+        //console.log(baseDatos);
+        //document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+'/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCapturar+'</span></li>';
         
-        /*productoListaJSON = JSON.stringify(nuevoProducto);
-        nombreUsu= localStorage.getItem('nombre');
+        carritoJSON=JSON.stringify(baseDatos);
+        nuevoUser = localStorage.getItem('nombre');
+
+        sessionStorage.setItem('carrito_' + nuevoUser, carritoJSON);
+        var carrito1= sessionStorage.getItem('carrito_'+nuevoUser)
         
-        localStorage.setItem("carrito_" + nombreUsu, productoListaJSON);
-        
-    };
-    function entrar(){
+        obj = JSON.parse(carrito1);
+       console.log(obj);
 
-           console.log("Terminá tu compra! Este es tu carrito:");
-           console.log(JSON.parse(localStorage.getItem('carrito_emiliano')));
+       document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+obj[0].imagen+'/><span class="item-name">'+obj[0].precio+'</span><span class="item-price">'+obj[0].titulo+'</span></li>';
 
-           listaNoTer = JSON.parse(localStorage.getItem('carrito_emiliano'));
 
-           document.getElementById('lista').innerHTML = listaNoTer;*/
-
+    }
        
-}
+    
     

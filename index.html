@@ -43,7 +43,7 @@
 						<i class="fa fa-shopping-cart cart-icon"></i><span class="badge">0</span>
 						<div class="shopping-cart-total">
 							<span class="lighter-text">Total:</span>
-							<span class="main-color-text">$0.00</span>
+							<span class="main-color-text" id="total">$0.00</span>
 						</div>
 					</div> 
 
@@ -206,7 +206,7 @@
 										</div>
 									</div>
 									<div class="entrada-datos">
-										<button class="btn" onclick="capturarUsuario();">Registrarse</button>
+										<button id="registro" class="btn" >Registrarse</button>
 									</div>
 									<div class="list-login-bottom text-center mt-lg-5 mt-4">
 										<a href="#" class="">*Al hacer clic en Registrarse, acepta los términos</a>
@@ -229,7 +229,7 @@
 										</div>
 									</div>
 									<div class="entrada-datos">
-										<button  class="btn" onclick="entrar();">Enviar</button>
+										<button  class="btn">Enviar</button>
 									</div>
 									<ul class="lista-login">
 										<li>
@@ -268,7 +268,7 @@
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1099</p>
 					<span class ="precio-desc" id="precio-des">$549</span>
-					<a href='#' class="agregar-carrito card-footer" id="agregar-carrito" onclick="capturar();">Agregar Carrito</a>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer" data-id="1">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (10).png" class="img-producto card-img-top" id="imagen">
@@ -276,7 +276,7 @@
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$8190</p>
 					<span class ="precio-desc" id="precio-des" >$4095</span>
-					<a href="#" class="agregar-carrito card-footer" onclick="capturar();">Agregar Carrito</a>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer" data-id="2">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (11).png" class="img-producto card-img-top" id="imagen">
@@ -284,47 +284,47 @@
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1599</p>
 					<span class ="precio-desc" id="precio-des" >$799</span>
-					<a href="#" class="agregar-carrito card-footer" data-id="3" >Agregar Carrito</a>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (12).png" class="img-producto card-img-top" id="imagen">
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj Monaco</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$2350</p>
-					<span class ="precio-desc" id="precio-des" >$1175</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="4" >Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$1175</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (2).png" class="img-producto card-img-top" id="imagen">
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj Tourbillon</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1999</p>
-					<span class ="precio-desc" id="precio-des" >$999</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="5">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$999</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (4).png" class="img-producto card-img-top" id="imagen">
 					<p class="titulo-producto card-title" id="titulo-pro">reloj Gues</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$5200</p>
-					<span class ="precio-desc" id="precio-des" >$799</span class =>
-					<a href="#" class="agregar-carrito card-footer" onclick="capturar();">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$799</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (3).png" class="img-producto card-img-top" id="imagen">
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj Cube</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$2599</p>
-					<span class ="precio-desc" id="precio-des" >$1299</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="7">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$1299</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 				<div class="producto card">
 					<img src="img/product/producto (5).png" class="img-producto card-img-top" id="imagen">
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj Gues</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1299</p>
-					<span class ="precio-desc" id="precio-des" >$649</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="8">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$649</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 
 				<div class="producto card">
@@ -332,8 +332,8 @@
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj Tommy Hilfiger </p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1999</p>
-					<span class ="precio-desc" id="precio-des" >$999</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="9">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$999</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 
 				<div class="producto card">
@@ -341,8 +341,8 @@
 					<p class="titulo-producto card-title" id="titulo-pro">Reloj IWC Schaffhausen</p>
 					<p class="descripcion-producto card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<p class="producto-precio">$1599</p>
-					<span class ="precio-desc" id="precio-des" >$799</span class =>
-					<a href="#" class="agregar-carrito card-footer" data-id="10">Agregar Carrito</a>
+					<span class ="precio-desc" id="precio-des" >$799</span>
+					<button id="agregar-carrito"><a href='#' class="agregar-carrito card-footer">Agregar Carrito</a></button>
 				</div>
 			</div>
 		</section>
