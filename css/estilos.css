@@ -44,7 +44,7 @@ a:hover {
 	width: 80%;
 }
 
-.badge {
+.conteo {
 	background-color: #6394f8;
 	border-radius: 10px;
 	color: white;
@@ -141,6 +141,10 @@ button:hover {
   background: lighten(#6394f8, 3%);
 }
 
+.boton-cerrar{
+  margin: auto;
+  display: flex;
+}
 
 .clearfix:after {
 content: "";
