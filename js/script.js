@@ -67,23 +67,27 @@ usuarioJSON = JSON.stringify(usuario);*/
 
 
 
-function capturar(){
+function capturar(event){
     //console.log("capturado")
+
+    var divProducto = event.target.parentElement.parentElement.children;
+    var idProducto = event.target.parentElement.parentElement.getAttribute('data-id');
     
-    function Producto (imagen, titulo,precio){
+    function Producto (imagen, titulo,precio, id){
         this.imagen = imagen;
         this.titulo = titulo;
         this.precio = precio;
+        this.id = id;
     }
-    imagenCapturar = document.getElementById("imagen").src;
+    imagenCapturar = divProducto[0].src;
     console.log(imagenCapturar);
-    tituloCapturar = document.getElementById("titulo-pro").textContent;
+    tituloCapturar = divProducto[1].textContent;
     console.log(tituloCapturar);
-    precioCapturar = document.getElementById("precio-des").textContent;
+    precioCapturar = divProducto[4].textContent;
     precioCapturado = precioCapturar.replace(/[$.]/g,'');
     precioCaptu = parseInt(precioCapturado);
     
-    nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu);
+    nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     console.log(nuevoProducto);
     agregar();
 }
@@ -93,7 +97,7 @@ var baseDatos = [];
 function agregar(){
     baseDatos.push(nuevoProducto);
     //console.log(baseDatos);
-    document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span></li><button class="btn boton-cerrar" id="borrar" onclick="borrar();">X</button>';
+    document.getElementById("lista").innerHTML += '<li class="clearfix" data-id= " '+ nuevoProducto.id + ' " ><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" id="borrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
     
     carritoJSON=JSON.stringify(baseDatos);
     nuevoUser = localStorage.getItem('nombre');
@@ -104,7 +108,7 @@ function agregar(){
     obj = JSON.parse(carrito1);
     console.log(obj);
     
-    //document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+obj[0].imagen+ ' class="img-fluid"/><span class="item-name">'+obj[0].precio+'</span><span class="item-price">'+obj[0].titulo+'</span></li>';
+    //document.getElementById("lista").innerHTML += '<li class="clearfix" ><img src='+obj[0].imagen+ ' class="img-fluid"/><span class="item-name">'+obj[0].precio+'</span><span class="item-price">'+obj[0].titulo+'</span></li>';
     
     sumar();
     
@@ -115,11 +119,14 @@ function agregar(){
 botonBor.addEventListener('click', borrar);*/
 
 
-function borrar(){
-     var listafunc = document.getElementById('lista');
-     listafunc.remove('clearfix');
+function borrar(producto){
+     listafunc = document.getElementById('lista');
 
-     baseDatos.shift();
+     elementoABorrarDelCarrito = document.querySelector("li.clearfix[data-id =' " + producto + "'] ");
+    
+    listafunc.removeChild(elementoABorrarDelCarrito);
+
+    baseDatos.shift();
 
  }
 
