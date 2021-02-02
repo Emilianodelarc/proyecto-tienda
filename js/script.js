@@ -93,7 +93,7 @@ var baseDatos = [];
 function agregar(){
     baseDatos.push(nuevoProducto);
     //console.log(baseDatos);
-    document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span></li><button class="btn boton-cerrar" id="borrar">X</button>';
+    document.getElementById("lista").innerHTML += '<li class="clearfix"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span></li><button class="btn boton-cerrar" id="borrar" onclick="borrar();">X</button>';
     
     carritoJSON=JSON.stringify(baseDatos);
     nuevoUser = localStorage.getItem('nombre');
@@ -111,13 +111,15 @@ function agregar(){
 }
 
   
-var botonBor = document.getElementById('borrar');
-botonBor.addEventListener('click', borrar);
+/*var botonBor = document.getElementById('borrar');
+botonBor.addEventListener('click', borrar);*/
 
 
 function borrar(){
      var listafunc = document.getElementById('lista');
      listafunc.remove('clearfix');
+
+     baseDatos.shift();
 
  }
 
