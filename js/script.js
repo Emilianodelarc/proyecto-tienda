@@ -6,7 +6,7 @@
     
   })();
 
-const boton = document.querySelectorAll('button#agregar-carrito');
+const boton = document.querySelectorAll('button#agregar-carrito')
 
     boton.forEach(function (item) {
     
@@ -97,36 +97,46 @@ var baseDatos = [];
 function agregar(){
     baseDatos.push(nuevoProducto);
     //console.log(baseDatos);
-    document.getElementById("lista").innerHTML += '<li class="clearfix" data-id= " '+ nuevoProducto.id + ' " ><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" id="borrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
+    document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+nuevoProducto.id+'"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
     
     carritoJSON=JSON.stringify(baseDatos);
-    nuevoUser = localStorage.getItem('nombre');
-    
-    sessionStorage.setItem('carrito_' + nuevoUser, carritoJSON);
-    var carrito1= sessionStorage.getItem('carrito_'+nuevoUser)
-    
-    obj = JSON.parse(carrito1);
-    console.log(obj);
-    
-    //document.getElementById("lista").innerHTML += '<li class="clearfix" ><img src='+obj[0].imagen+ ' class="img-fluid"/><span class="item-name">'+obj[0].precio+'</span><span class="item-price">'+obj[0].titulo+'</span></li>';
-    
+       nuevoUser = localStorage.getItem('nombre');
+       
+       localStorage.setItem('carrito_' + nuevoUser, carritoJSON);
+        carrito1= localStorage.getItem('carrito_'+nuevoUser)
     sumar();
     
 }
 
   
+
 /*var botonBor = document.getElementById('borrar');
 botonBor.addEventListener('click', borrar);*/
 
 
 function borrar(producto){
-     listafunc = document.getElementById('lista');
+   var listaFunc = document.getElementById("listaPro");
 
-     elementoABorrarDelCarrito = document.querySelector("li.clearfix[data-id =' " + producto + "'] ");
+     //var borrarElemento = document.querySelector("li.clearfix[data-id=' " + producto + "'] ");
+      borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
     
-    listafunc.removeChild(elementoABorrarDelCarrito);
+    listaFunc.removeChild(borrarElemento);
+
+
 
     baseDatos.shift();
+    console.log(nuevoProducto)
 
  }
 
+
+function carritoLS(){
+
+    
+    obj = JSON.parse(carrito1);
+    console.log(obj);
+    
+   document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+obj[id]+'"><img src='+obj[imagen]+' class="img-fluid"/><span class="item-name">'+obj[titulo]+'</span><span class="item-price">'+Obj[precio]+'</span><button class="btn boton-cerrar" onclick="borrar('+ obj[id] +');">X</button></li>';
+    console.log(carritoLS);
+}
+carritoLS();
