@@ -6,6 +6,8 @@
     
   })();
 
+
+//---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO-----  
 const boton = document.querySelectorAll('button#agregar-carrito')
 
     boton.forEach(function (item) {
@@ -14,62 +16,13 @@ const boton = document.querySelectorAll('button#agregar-carrito')
 });
 
 
-function sumar () {
-    
-    conteoCant = baseDatos.length;
-    document.getElementById("cont1").innerHTML = conteoCant;
-    document.getElementById("cont2").innerHTML = conteoCant
-
-    valor = document.getElementById('total').textContent;
-    
-	
-    // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
-    valor = (valor == null || valor == undefined || valor == "") ? 0 : valor;
-	
-    /* Esta es la suma. */
-    valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
-    
-	
-    // Colocar el resultado de la suma en el control "span".
-    document.getElementById('total').innerHTML ='$' + valor;
-    //console.log(valor);
-}
-
-var botonr = document.getElementById('registro')
-botonr.addEventListener('click', capturarUsuario);
-
-function capturarUsuario(){
-    function Persona(persona, password){
-        this.persona = persona;
-        this.password = password;
-    }
-    nombre = document.getElementById('nombre').value;
-    //console.log(nombre);
-    password = document.getElementById('contraseña').value;
-    //console.log(password);
-    
-    localStorage.setItem("nombre", nombre);
-    localStorage.setItem("contraseña", password);
-    
-    
-    nuevoUsuario = new Persona (nombre, password);
-    //agregarUsu();
-}
-
-//usuario = [];
-
-/*function agregarUsu(){
-    usuario.push(nuevoUsuario);
-    console.log(usuario);
-}
-
-usuarioJSON = JSON.stringify(usuario);*/
 
 
 
+//------------CAPTURO LOS PRODUCTOS -------
 function capturar(event){
     //console.log("capturado")
-
+    
     var divProducto = event.target.parentElement.parentElement.children;
     var idProducto = event.target.parentElement.parentElement.getAttribute('data-id');
     
@@ -91,7 +44,7 @@ function capturar(event){
     console.log(nuevoProducto);
     agregar();
 }
-
+//------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY Y SE LOS LLEVA AL LOCASTORAGE-----------------------------------------------------------
 var baseDatos = [];
 
 function agregar(){
@@ -100,43 +53,97 @@ function agregar(){
     document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+nuevoProducto.id+'"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
     
     carritoJSON=JSON.stringify(baseDatos);
-       nuevoUser = localStorage.getItem('nombre');
-       
-       localStorage.setItem('carrito_' + nuevoUser, carritoJSON);
-        carrito1= localStorage.getItem('carrito_'+nuevoUser)
+    nuevoUser = localStorage.getItem('nombre');
+    
+    localStorage.setItem('carrito_' + nuevoUser, carritoJSON);
+    carrito1= localStorage.getItem('carrito_'+nuevoUser)
     sumar();
     
 }
+//---------------------------------------------------------------------------------------------------
 
-  
+//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY--------
+function sumar () {
+    
+    conteoCant = baseDatos.length;
+    document.getElementById("cont1").innerHTML = conteoCant;
+    document.getElementById("cont2").innerHTML = conteoCant
 
-/*var botonBor = document.getElementById('borrar');
-botonBor.addEventListener('click', borrar);*/
-
-
+    valor = document.getElementById('total').textContent;
+    
+    
+    // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
+    valor = (valor == null || valor == undefined || valor == "") ? 0 : valor;
+    
+    /* Esta es la suma. */
+    valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
+    
+    
+    // Colocar el resultado de la suma en el control "span".
+    document.getElementById('total').innerHTML ='$' + valor;
+    //console.log(valor);
+}
+//-------------ESTA FUNCION BORRA EL PRODUCTO Q NO QUIERO-----------------
 function borrar(producto){
-   var listaFunc = document.getElementById("listaPro");
-
-     //var borrarElemento = document.querySelector("li.clearfix[data-id=' " + producto + "'] ");
-      borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
+    var listaFunc = document.getElementById("listaPro");
+    
+    //var borrarElemento = document.querySelector("li.clearfix[data-id=' " + producto + "'] ");
+    borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
     
     listaFunc.removeChild(borrarElemento);
 
+    /*for (var i =0; i < baseDatos.length; i++){
+        if (baseDatos[i].id === nuevoProducto.id) {
+           baseDatos.splice(i);
+        }
+     };*/
+     /*let id = this.getAttribute('item');
+    Borramos todos los productos
+    carrito = baseDatos.filter(function (carritoId) {
+        return carritoId !== id;
+    });*/
+    delete baseDatos[nuevoProducto.id];
 
+    sumar();
+    console.log(baseDatos)
+    
+}
 
-    baseDatos.shift();
-    console.log(nuevoProducto)
-
- }
-
-
+/*
 function carritoLS(){
-
+    
     
     obj = JSON.parse(carrito1);
     console.log(obj);
     
-   document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+obj[id]+'"><img src='+obj[imagen]+' class="img-fluid"/><span class="item-name">'+obj[titulo]+'</span><span class="item-price">'+Obj[precio]+'</span><button class="btn boton-cerrar" onclick="borrar('+ obj[id] +');">X</button></li>';
+    document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+obj[id]+'"><img src='+obj[imagen]+' class="img-fluid"/><span class="item-name">'+obj[titulo]+'</span><span class="item-price">'+Obj[precio]+'</span><button class="btn boton-cerrar" onclick="borrar('+ obj[id] +');">X</button></li>';
     console.log(carritoLS);
 }
 carritoLS();
+*/
+
+var botonr = document.querySelector('button#registro')
+botonr.addEventListener('click', capturarUsuario);
+
+function capturarUsuario(){
+    
+    nombre = document.getElementById('nombre').value;
+    //console.log(nombre);
+    
+    localStorage.setItem("nombre", nombre);
+    
+    datosUser()
+}
+
+
+function datosUser(){
+    usuario = localStorage.getItem('nombre');
+    //console.log(usuario);
+    document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO '+usuario+ ' <button onclick="checout();" id="salir">X</button</li>'
+
+
+    function checout(){
+        localStorage.clear();
+        document.location.reload(true);
+    }
+}
