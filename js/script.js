@@ -57,7 +57,7 @@ function agregar(){
     
 }
 //---------------------------------------------------------------------------------------------------
-//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY--------
+//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY--------------
 function sumar () {
     
     conteoCant = baseDatos.length;
@@ -78,6 +78,7 @@ function sumar () {
     document.getElementById('total').innerHTML ='$' + valor;
     //console.log(valor);
 }
+//-------------------------------------------------------------------------------------------
 //-------------ESTA FUNCION BORRA EL PRODUCTO Q NO QUIERO-----------------
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
@@ -98,24 +99,21 @@ function borrar(producto){
     carritoLS();
     sumar();
     
-    console.log(baseDatos)
-    
+    //console.log(baseDatos)  
 }
-
-
-
-
+//---------------------------------------------------------------------------
+//----------------------CARRITO ENVIADO A LOCALSTORAGE-----------------
 function carritoLS(){
     
     
     carritoJSON=JSON.stringify(baseDatos);
     localStorage.baseDatos = carritoJSON;
 }
+//-------------------------------------------------------------------------------------------
 
-
+//-------------------------------CAPTURA LOS DATOS DEL USUARIO---------------------------------------------------------------
 var botonr = document.querySelector('button#registro')
 botonr.addEventListener('click', capturarUsuario);
-
 function capturarUsuario(){
     
     nombre = document.getElementById('nombre').value;
@@ -128,8 +126,8 @@ function capturarUsuario(){
     
     datosUser()
 }
-
-
+//--------------------------------------------------------------------------------------
+//------------------DATOS DEL USUARIO--------------------------
 function datosUser(){
     usuario = localStorage.getItem('nombre');
     //console.log(usuario);
@@ -149,8 +147,8 @@ function datosUser(){
         document.location.reload(true);
     }
     datosUser()
-    
-    
+//--------------------------------------------------------------------------------------------------------------
+//----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS-----------------------------     
     function leerLocalStorage () {
         
         dataBaseLS = JSON.parse(localStorage.baseDatos);
@@ -161,8 +159,9 @@ function datosUser(){
         })
         sumarLS();
     }
-    leerLocalStorage();
-    
+leerLocalStorage();
+//--------------------------------------------------------------------------------------------------------------    
+//---------------------BORRA LOS PRODUCTOS ALMACENDOS EN EL LOCAL STORAGE----------------   
     function borrarLS(producto){
         var listaFunc = document.getElementById("listaPro");
         
@@ -184,6 +183,8 @@ function datosUser(){
         console.log(dataBaseLS)
         
     }
+//-------------------------------------------------------------------------------------    
+//---------------------sUMA LOS PRODUCTOS DEL LOCAL STORAGE-------------------    
     function sumarLS(){
         conteoCant = dataBaseLS.length;
         document.getElementById("cont1").innerHTML = conteoCant;
@@ -201,7 +202,10 @@ function datosUser(){
         
         // Colocar el resultado de la suma en el control "span".
         document.getElementById('total').innerHTML ='$' + valor2;
+        registroLS();
     }
+//-------------------------------------------------------------------------------------------------------------
+//------------------------REALIZA LA CARGA DE DATOS PARA LA FACTURA-------------------
     function compra(){
         user= localStorage.getItem('nombre');
         email=localStorage.getItem('email');
@@ -213,7 +217,7 @@ function datosUser(){
         
     };
     compra();
-    registroLS();
+    
     function registroLS(){
         
         dataBaseLS.forEach(function (item) {
@@ -223,15 +227,4 @@ function datosUser(){
         subtotal= document.getElementById('subtotalFact').innerHTML = valor2 / 1.21;
         document.getElementById('iva').innerHTML = (total - subtotal);
     };
-
-    registro();
-    function registro(){
-
-        baseDatos.forEach(function (item) {
-            item = document.getElementById('listaProd').innerHTML += '<td><img src="'+item.imagen+'" class="img-fluid"></td><td>'+item.titulo+'</td><td>'+item.precio+'</td>'
-        });
-       total = document.getElementById('totalFact').innerHTML = valor2;
-        subtotal= document.getElementById('subtotalFact').innerHTML = valor2 / 1.21;
-        document.getElementById('iva').innerHTML = (total - subtotal);
-        console.log("funciona")
-    }
+//-----------------------------------------------------------------------------------
