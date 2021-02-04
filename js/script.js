@@ -22,7 +22,7 @@ const boton = document.querySelectorAll('button#agregar-carrito')
 //------------CAPTURO LOS PRODUCTOS -------
 function capturar(event){
     //console.log("capturado")
-    
+    //console.log(event.target.parentElement.parentElement.children);
     var divProducto = event.target.parentElement.parentElement.children;
     var idProducto = event.target.parentElement.parentElement.getAttribute('data-id');
     
@@ -33,15 +33,15 @@ function capturar(event){
         this.id = id;
     }
     imagenCapturar = divProducto[0].src;
-    console.log(imagenCapturar);
+    //console.log(imagenCapturar);
     tituloCapturar = divProducto[1].textContent;
-    console.log(tituloCapturar);
+    //console.log(tituloCapturar);
     precioCapturar = divProducto[4].textContent;
     precioCapturado = precioCapturar.replace(/[$.]/g,'');
     precioCaptu = parseInt(precioCapturado);
     
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
-    console.log(nuevoProducto);
+    //console.log(nuevoProducto);
     agregar();
 }
 //------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY Y SE LOS LLEVA AL LOCASTORAGE-----------------------------------------------------------
@@ -52,11 +52,12 @@ function agregar(){
     //console.log(baseDatos);
     document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+nuevoProducto.id+'"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
     
-    carritoJSON=JSON.stringify(baseDatos);
+    /*carritoJSON=JSON.stringify(baseDatos);
     nuevoUser = localStorage.getItem('nombre');
     
     localStorage.setItem('carrito_' + nuevoUser, carritoJSON);
-    carrito1= localStorage.getItem('carrito_'+nuevoUser)
+    carrito1= localStorage.getItem('carrito_'+nuevoUser)*/
+    carritoLS();
     sumar();
     
 }
@@ -92,35 +93,41 @@ function borrar(producto){
     
     listaFunc.removeChild(borrarElemento);
 
-    /*for (var i =0; i < baseDatos.length; i++){
-        if (baseDatos[i].id === nuevoProducto.id) {
-           baseDatos.splice(i);
+    productoDel= document.querySelector('[data-id="'+producto+'"]')
+    
+    for (var i =0; i < baseDatos.length; i++){
+        if (baseDatos[i].id === producto) {
+           baseDatos.splice(i,1);
+           console.log(nuevoProducto.id)
         }
-     };*/
-     /*let id = this.getAttribute('item');
-    Borramos todos los productos
-    carrito = baseDatos.filter(function (carritoId) {
-        return carritoId !== id;
-    });*/
-    delete baseDatos[nuevoProducto.id];
+     };
+    
+    //baseDatos.shift();
 
-    sumar();
+     sumar();
+
     console.log(baseDatos)
     
 }
 
-/*
+
+
+
 function carritoLS(){
     
+     
+    carritoJSON=JSON.stringify(baseDatos);
+    nuevoUser = localStorage.getItem('nombre');
     
+    localStorage.setItem('carrito_' + nuevoUser, carritoJSON);
+    carrito1= localStorage.getItem('carrito_'+ nuevoUser)
     obj = JSON.parse(carrito1);
-    console.log(obj);
+    //console.log(obj);
     
-    document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+obj[id]+'"><img src='+obj[imagen]+' class="img-fluid"/><span class="item-name">'+obj[titulo]+'</span><span class="item-price">'+Obj[precio]+'</span><button class="btn boton-cerrar" onclick="borrar('+ obj[id] +');">X</button></li>';
-    console.log(carritoLS);
+    //document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+obj.id+'"><img src='+obj.imagen+' class="img-fluid"/><span class="item-name">'+obj.titulo+'</span><span class="item-price">'+Obj.precio+'</span><button class="btn boton-cerrar" onclick="borrar('+ obj.id +');">X</button></li>';
+    //console.log(carrito1);
 }
-carritoLS();
-*/
+
 
 var botonr = document.querySelector('button#registro')
 botonr.addEventListener('click', capturarUsuario);
