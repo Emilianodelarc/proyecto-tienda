@@ -48,7 +48,7 @@
 					<ul class="shopping-cart-items" id="listaPro">
 					
 					</ul>
-					<a href="#" class="button" onclick="entrar();";>Comprar</a>
+					<a href="#compag" class="button" >Comprar</a>
 				</div> 
 			</div> 
 			<div class="banner-info container">
@@ -63,6 +63,12 @@
 					</div>
 				</div>
 			</div>
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
 		</header>
 		<section class="banner-bottom py-5">
 			<div class="container py-md-3">
@@ -121,7 +127,7 @@
 						<h3 class="titulo-destacados">SIENDO TENDENCIA AHORA</h3>
 						<p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
 					</div>
-					< class="col-8 imagen-des gallery-content">
+					<div class="col-8 imagen-des gallery-content">
 						<div class="row">
 							<div class="col-md-4 col-sm-6 gal-img">
 								<a href="#gal1"><img src="img/product/producto (1).jpg" alt="Baggage" class="img-fluid mt-4"></a>
@@ -185,17 +191,17 @@
 								<form>
 									<div class="field-group">
 										<div class="entrada-datos">
-											<input  id="nombre" type="text" placeholder="Nombre" >
+											<input  id="nombre" type="text" placeholder="Nombre y Apellido" >
 										</div>
 									</div>
 									<div class="field-group">
 										<div class="entrada-datos">
-											<input name="text1" id="email" type="email"  placeholder="example@example.com" >
+											<input id="email" type="email"  placeholder="example@example.com" >
 										</div>
 									</div>
 									<div class="field-group">
 										<div class="entrada-datos">
-											<input name="text1" id="telefono" type="text"  placeholder="telefono" >
+											<input  id="telefono" type="number"  placeholder="telefono" >
 										</div>
 									</div>
 									<div class="entrada-datos">
@@ -205,6 +211,72 @@
 										<a href="#" class="">*Al hacer clic en Registrarse, acepta los términos</a>
 									</div>
 								</form>
+							</div>
+						</div>
+						<div id="compag" class="popup-efecto">
+							<div class="popup">
+								<form id="procesar-pago" action="#">
+									<div class="form-group row">
+										<label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+										<div class="col-12 col-md-10">
+											<input type="text" class="form-control" id="cliente"
+											placeholder="Ingresa nombre cliente" required>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+										<div class="col-12 col-md-10">
+											<input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
+										</div>
+									</div>
+									<div id="carrito" class="table-responsive">
+										<table class="table" id="lista-compra">
+											<thead>
+												<tr>
+													<th scope="col">Imagen</th>
+													<th scope="col">Nombre</th>
+													<th scope="col">Precio</th>
+												</tr>
+											</thead>
+											<tbody id="listaProd">
+
+											</tbody>
+											<tr>
+												<th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
+												<th scope="col">
+													<p id="subtotalFact"></p>
+												</th>
+												<!-- <th scope="col"></th> -->
+											</tr>
+											<tr>
+												<th colspan="4" scope="col" class="text-right">Iva:21%</th>
+												<th scope="col">
+													<p id="iva"></p>
+												</th>
+												<!-- <th scope="col"></th> -->
+											</tr>
+											<tr>
+												<th colspan="4" scope="col" class="text-right">TOTAL :</th>
+												<th scope="col">
+													<p id="totalFact"></p>
+												</th>
+												<!-- <th scope="col"></th> -->
+											</tr>
+										</table>
+									</div>
+									<div class="row justify-content-center" id="loaders">
+										<img id="cargando" src="img/cargando.gif" width="220">
+									</div>
+									<div class="row justify-content-between">
+										<div class="col-md-4 mb-2">
+											<a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
+										</div>
+										<div class="col-xs-12 col-md-4">
+											<a href="" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</a>
+										</div>
+									</div>
+								</form>
+								<a class="cerrar" href="#gallery">&times;</a>
 							</div>
 						</div>
 					</div>

@@ -246,7 +246,7 @@ clear: both;
 	margin-bottom: 0;  
 }
 
-h2{
+.titulo-oferta{
   text-transform: uppercase;
   font: 10vw/1.5 'Volkhov', serif;
   letter-spacing: 0.2em;
@@ -467,7 +467,9 @@ ul.lista-login {
   padding: 15px 20px;
   border-radius: 0px;
 }
-
+#totalFact{
+  width: 90px;
+}
 /* //popup */
 /*--/envio-grids--*/
 .envio-gd {
