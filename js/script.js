@@ -96,7 +96,7 @@ function borrar(producto){
     productoDel= document.querySelector('[data-id="'+producto+'"]')
     
     for (var i =0; i < baseDatos.length; i++){
-        if (baseDatos[i].id === producto) {
+        if (baseDatos[i].id === nuevoProducto.id) {
            baseDatos.splice(i,1);
            console.log(nuevoProducto.id)
         }
