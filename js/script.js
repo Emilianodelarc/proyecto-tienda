@@ -74,7 +74,7 @@ function sumar () {
     //console.log(valor);
 }
 //--------------------------------------------------------------------------------------------------------------
-//-------------ESTA FUNCION BORRA EL PRODUCTO Q NO QUIERO-------------------------------------------------------
+//-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE-------------------------------------------------------
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
     
