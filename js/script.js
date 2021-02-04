@@ -7,19 +7,14 @@
   })();
 
 
-//---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO-----  
+//---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO------------------------------------------------------------------------------
 const boton = document.querySelectorAll('button#agregar-carrito')
 
     boton.forEach(function (item) {
     
     item.addEventListener("click", capturar);
 });
-
-
-
-
-
-//------------CAPTURO LOS PRODUCTOS -------
+//------------CAPTURO LOS PRODUCTOS -----------------------------------------------------------------------------------------------------
 function capturar(event){
     //console.log("capturado")
     //console.log(event.target.parentElement.parentElement.children);
@@ -57,7 +52,7 @@ function agregar(){
     
 }
 //---------------------------------------------------------------------------------------------------
-//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY--------------
+//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY-----------------------------
 function sumar () {
     
     conteoCant = baseDatos.length;
@@ -78,8 +73,8 @@ function sumar () {
     document.getElementById('total').innerHTML ='$' + valor;
     //console.log(valor);
 }
-//-------------------------------------------------------------------------------------------
-//-------------ESTA FUNCION BORRA EL PRODUCTO Q NO QUIERO-----------------
+//--------------------------------------------------------------------------------------------------------------
+//-------------ESTA FUNCION BORRA EL PRODUCTO Q NO QUIERO-------------------------------------------------------
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
     
@@ -101,16 +96,14 @@ function borrar(producto){
     
     //console.log(baseDatos)  
 }
-//---------------------------------------------------------------------------
-//----------------------CARRITO ENVIADO A LOCALSTORAGE-----------------
+//----------------------------------------------------------------------------------------------------------------------
+//----------------------CARRITO ENVIADO A LOCALSTORAGE------------------------------------------------------------------
 function carritoLS(){
-    
     
     carritoJSON=JSON.stringify(baseDatos);
     localStorage.baseDatos = carritoJSON;
 }
-//-------------------------------------------------------------------------------------------
-
+//--------------------------------------------------------------------------------------------------------------------------
 //-------------------------------CAPTURA LOS DATOS DEL USUARIO---------------------------------------------------------------
 var botonr = document.querySelector('button#registro')
 botonr.addEventListener('click', capturarUsuario);
@@ -127,7 +120,7 @@ function capturarUsuario(){
     datosUser()
 }
 //--------------------------------------------------------------------------------------
-//------------------DATOS DEL USUARIO--------------------------
+//------------------DATOS DEL USUARIO---------------------------------------------------
 function datosUser(){
     usuario = localStorage.getItem('nombre');
     //console.log(usuario);
@@ -148,7 +141,7 @@ function datosUser(){
     }
     datosUser()
 //--------------------------------------------------------------------------------------------------------------
-//----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS-----------------------------     
+//----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS--------------------------------   
     function leerLocalStorage () {
         
         dataBaseLS = JSON.parse(localStorage.baseDatos);
@@ -161,7 +154,7 @@ function datosUser(){
     }
 leerLocalStorage();
 //--------------------------------------------------------------------------------------------------------------    
-//---------------------BORRA LOS PRODUCTOS ALMACENDOS EN EL LOCAL STORAGE----------------   
+//---------------------BORRA LOS PRODUCTOS ALMACENDOS EN EL LOCAL STORAGE---------------------------------------  
     function borrarLS(producto){
         var listaFunc = document.getElementById("listaPro");
         
@@ -183,8 +176,8 @@ leerLocalStorage();
         console.log(dataBaseLS)
         
     }
-//-------------------------------------------------------------------------------------    
-//---------------------sUMA LOS PRODUCTOS DEL LOCAL STORAGE-------------------    
+//----------------------------------------------------------------------------------------------------------------    
+//---------------------sUMA LOS PRODUCTOS DEL LOCAL STORAGE-------------------------------------------------------
     function sumarLS(){
         conteoCant = dataBaseLS.length;
         document.getElementById("cont1").innerHTML = conteoCant;
@@ -204,17 +197,15 @@ leerLocalStorage();
         document.getElementById('total').innerHTML ='$' + valor2;
         registroLS();
     }
-//-------------------------------------------------------------------------------------------------------------
-//------------------------REALIZA LA CARGA DE DATOS PARA LA FACTURA-------------------
+//----------------------------------------------------------------------------------------------------------------------
+//------------------------REALIZA LA CARGA DE DATOS PARA LA FACTURA-----------------------------------------------------
     function compra(){
         user= localStorage.getItem('nombre');
         email=localStorage.getItem('email');
         console.log(user,email)
         
         cliente=document.getElementById('cliente').value = user;
-        correo=document.getElementById('correo').value = email;
-        
-        
+        correo=document.getElementById('correo').value = email;              
     };
     compra();
     
@@ -224,7 +215,7 @@ leerLocalStorage();
             item = document.getElementById('listaProd').innerHTML += '<td><img src="'+item.imagen+'" class="img-fluid"></td><td>'+item.titulo+'</td><td>'+item.precio+'</td>'
         });
         total = document.getElementById('totalFact').innerHTML = valor2;
-        subtotal= document.getElementById('subtotalFact').innerHTML = valor2 / 1.21;
+        subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor2 / 1.21);
         document.getElementById('iva').innerHTML = (total - subtotal);
     };
-//-----------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------------------
