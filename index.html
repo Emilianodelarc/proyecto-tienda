@@ -209,7 +209,7 @@
 										</div>
 									</div>
 									<div class="entrada-datos">
-										<button id="registro" class="btn" >Registrarse</button>
+										<button id="registro" class="btn"><a href="#" class="regis"> Registrarse</a></button>
 									</div>
 									<div class="list-login-bottom text-center mt-lg-5 mt-4">
 										<a href="#" class="">*Al hacer clic en Registrarse, acepta los términos</a>
@@ -218,7 +218,7 @@
 							</div>
 						</div>
 						<div id="compag" class="popup-efecto">
-							<div class="popup">
+							<div class="popup-1">
 								<form id="procesar-pago" action="#">
 									<div class="form-group row">
 										<label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
@@ -234,10 +234,9 @@
 										</div>
 									</div>
 									<div id="carrito" class="table-responsive">
-										<table class="table" id="lista-compra">
-											<thead>
+										<table class="table table-hover" id="lista-compra">
+											<thead class="table-info">
 												<tr>
-													<th scope="col">Imagen</th>
 													<th scope="col">Nombre</th>
 													<th scope="col">Precio</th>
 												</tr>
@@ -246,19 +245,19 @@
 
 											</tbody>
 											<tr>
-												<th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
+												<th scope="col" >SUB TOTAL :</th>
 												<th scope="col">
 													<p id="subtotalFact"></p>
 												</th>
 											</tr>
 											<tr>
-												<th colspan="4" scope="col" class="text-right">Iva:21%</th>
+												<th scope="col" >Iva:21%</th>
 												<th scope="col">
 													<p id="iva"></p>
 												</th>
 											</tr>
 											<tr>
-												<th colspan="4" scope="col" class="text-right">TOTAL :</th>
+												<th scope="col" c>TOTAL :</th>
 												<th scope="col">
 													<p id="totalFact"></p>
 												</th>
@@ -267,14 +266,13 @@
 									</div>
 									<div class="row justify-content-between">
 										<div class="col-md-4 mb-2">
-											<a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
+											<a href="#" class="btn btn-info btn-block">Seguir comprando</a>
 										</div>
 										<div class="col-xs-12 col-md-4">
 											<a href="" class="btn btn-success btn-block" id="procesar-compra" onclick="checout();">Realizar compra</a>
 										</div>
 									</div>
 								</form>
-								<a class="cerrar" href="#gallery">&times;</a>
 							</div>
 						</div>
 					</div>

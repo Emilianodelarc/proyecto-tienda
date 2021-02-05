@@ -37,6 +37,7 @@ a {
 }
 a:hover {
 	color: black;
+  text-decoration: none;
 }
 
 .container {
@@ -416,7 +417,30 @@ clear: both;
   z-index: 999;
   text-align: center;
 }
-
+.regis{
+  color: white;
+  font-weight: 600;
+}
+.popup-1{
+  background: #fff;
+  border-radius: 4px;
+  max-width: 688px;
+  position: relative;
+  margin: 8em auto;
+  padding: 3em 2em;
+  z-index: 999;
+  text-align: center;
+}
+.popup-1.cerrar-1{
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
 .popup .cerrar {
   position: absolute;
   top: 5px;
@@ -463,9 +487,7 @@ ul.lista-login {
   padding: 15px 20px;
   border-radius: 0px;
 }
-#totalFact{
-  width: 90px;
-}
+
 /* //popup */
 /*--/envio-grids--*/
 .envio-gd {
