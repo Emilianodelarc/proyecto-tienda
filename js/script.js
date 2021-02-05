@@ -170,8 +170,11 @@ function datosUser(){
         document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO '+usuario+ ' <button onclick="checout();" id="salir"><i class="fas fa-sign-out-alt"></i></button</li>'
         
         if (localStorage.baseDatos){
-            console.log("Terminá tu compra! Este es tu carrito:")
-            console.log(JSON.parse(localStorage.baseDatos))
+            document.getElementById("alert-carrito").className =
+                "alert alert-danger alert-dismissible fade show";
+            document.getElementById("alert-carrito-texto").innerText =
+            "Terminá tu compra! Este es tu carrito: " + usuario  ;
+    
         };
     };
 };
