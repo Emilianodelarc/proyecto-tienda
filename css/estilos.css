@@ -57,6 +57,12 @@ a:hover {
 	vertical-align: middle;
 	white-space: nowrap;
 }
+.alert-danger{
+  position: fixed;
+  margin-left: 120px;
+  margin-top: 30px;
+  z-index: 1000;
+}
 /*----------// nav------*/
 
 /*----- Carrito ----------*/

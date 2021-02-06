@@ -1,8 +1,11 @@
 (function(){
  
-    $("#cart").on("click", function() {
-      $(".shopping-cart").fadeToggle( "fast");
-    });
+    /*$("#cart").on("click", function() {
+      $(".shopping-cart").first.fadeToggle("slow", "linear");
+    });*/
+    $( "#cart" ).first().click(function() {
+        $( ".shopping-cart" ).first().fadeToggle( "slow", "linear" );
+      });
     
   })();
 
@@ -158,7 +161,7 @@ function capturarUsuario(){
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
-//------------------DATOS DEL USUARIO------------------------------------------------------------------------------------------------
+//------------------DATOS DEL USUARIO Y ALERTA SI HAY CARRITO---------------------------------------------------------------------------------
 
 function datosUser(){
     usuario = localStorage.getItem('nombre');
@@ -173,7 +176,7 @@ function datosUser(){
             document.getElementById("alert-carrito").className =
                 "alert alert-danger alert-dismissible fade show";
             document.getElementById("alert-carrito-texto").innerText =
-            "Terminá tu compra! Este es tu carrito: " + usuario  ;
+            "Terminá tu compra! " + usuario  ;
     
         };
     };
