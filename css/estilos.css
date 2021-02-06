@@ -796,7 +796,32 @@ h3.sub-headf {
   color: red;
   padding-bottom: 15px;
 }
+.aCarr{
+  background: transparent;
+}
 /*-------//agregar carrito----*/
+/*--------Contacto-------*/
+.contenedor-formulario{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.promoVideo{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.video{
+  margin-left: 50px;
+}
+.mensjPromo{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  width: 273px;
+  border-radius: 14px;
+  padding: 9px;
+  margin-bottom: 17px;
+}
 /*-----Responsive-----*/
 @media screen and (min-width: 768px){
 	
