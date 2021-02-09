@@ -1,13 +1,16 @@
+$( document ).ready(function()
+{
+    document.getElementById("modal-login").click()
+    // console.log( "Página cargada en jQuery!" + (new Date()).getMilliseconds() );
+});
 (function(){
  
-    /*$("#cart").on("click", function() {
-      $(".shopping-cart").first.fadeToggle("slow", "linear");
-    });*/
     $( "#cart" ).first().click(function() {
         $( ".shopping-cart" ).first().fadeToggle( "slow", "linear" );
       });
     
   })();
+
 
 
 //---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO------------------------------------------------------------------------------
@@ -39,7 +42,9 @@ function capturar(event){
     precioCapturar = divProducto[4].textContent;
     precioCapturado = precioCapturar.replace(/[$.]/g,'');
     precioCaptu = parseInt(precioCapturado);
-    
+
+    cantidad = 1;
+
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     
     agregar();
@@ -50,11 +55,27 @@ var baseDatos = [];
 
 function agregar(){
     baseDatos.push(nuevoProducto);
-    
-   document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+nuevoProducto.id+'"><img src='+imagenCapturar+' class="img-fluid"/><span class="item-name">'+tituloCapturar+'</span><span class="item-price">'+precioCaptu+'</span><button class="btn boton-cerrar" onclick="borrar('+ nuevoProducto.id +');">X</button></li>';
 
-    factura();
-    carritoLS();
+    for (let i = 0; i < baseDatos.length; i++) {
+        if (baseDatos[i].innerText === tituloCapturar) {
+            console.log(baseDatos[i]);
+        }
+      }
+    
+   document.getElementById("listaPro").innerHTML += `
+   <li class="clearfix" data-id="${nuevoProducto.id}">
+        <img src=${imagenCapturar} class="img-fluid"/>
+        <span class="item-name">${tituloCapturar}</span>
+        <span class="item-price">${precioCaptu}</span>
+        <input class="shopping-cart-cantidad shoppingCartItemCantidad" type="number"
+        value="1">
+        <button class="btn boton-cerrar" onclick="borrar(${nuevoProducto.id});">X</button>
+   </li>`;
+   const cantidadT = document.querySelector('.shoppingCartItemCantidad')
+   cantidadT.addEventListener('change', cambioCantidad)
+
+   factura();
+   carritoLS();
     sumar();
     
 };
@@ -75,13 +96,24 @@ function sumar () {
     
     /* Esta es la suma. */
     valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
-    
+
     document.getElementById('total').innerHTML ='$' + valor;
     total = document.getElementById('totalFact').innerHTML = valor;
     subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
     document.getElementById('iva').innerHTML = (total - subtotal);
-   
+
+    resultado = document.querySelector('.shoppingCartItemCantidad')
+    resultado2 = Number(resultado.value);
+    console.log(resultado2)
 };
+
+function cambioCantidad(event) {
+    const input = event.target;
+    if(input.value <= 0){
+        input.value = 1
+    }
+    console.log(input)   
+}
 
 //--------------------------------------------------------------------------------------------------------------
 //-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO Y POR ENDE SE BORRA DEL CARRITO------------------------------------------------------
@@ -187,7 +219,7 @@ function checout(){
     document.location.reload(true);
 };
 
-    datosUser();
+datosUser();
 
 //--------------------------------------------------------------------------------------------------------------
 //----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS--------------------------------   
@@ -299,3 +331,4 @@ function borrarFactu(producto){
     }
     
 };
+//-------------------------------------------------------------------------------------------------------------------------------
