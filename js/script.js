@@ -43,8 +43,6 @@ function capturar(event){
     precioCapturado = precioCapturar.replace(/[$.]/g,'');
     precioCaptu = parseInt(precioCapturado);
 
-    cantidad = 1;
-
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     
     agregar();
@@ -67,28 +65,31 @@ function agregar(){
         <img src=${imagenCapturar} class="img-fluid"/>
         <span class="item-name">${tituloCapturar}</span>
         <span class="item-price">${precioCaptu}</span>
-        <input class="shopping-cart-cantidad shoppingCartItemCantidad" type="number"
+        <button onclick="menosUno();">-</button>
+        <input class="shopping-cart-cantidad" id="shoppingCartItemCantidad" type="text"
         value="1">
+        <button onclick="masUno();">+</button>
         <button class="btn boton-cerrar" onclick="borrar(${nuevoProducto.id});">X</button>
    </li>`;
-   const cantidadT = document.querySelector('.shoppingCartItemCantidad')
-   cantidadT.addEventListener('change', cambioCantidad)
-
+   
    factura();
    carritoLS();
    sumar();
    
 };
 
-function cambioCantidad() {
-    const input = event.target;
-    if(input.value <= 0){
-        input.value = 1
-    }
-     cant = input.value
-     console.log(cant)
-    
+function masUno(){
+     valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
+    document.getElementById('shoppingCartItemCantidad').value= valuer + 1;
 }
+function menosUno(){
+    valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
+    if(valuer <= 0){
+       valuer = 1;
+    } 
+    document.getElementById('shoppingCartItemCantidad').value= valuer - 1;
+}
+
 
 //---------------------------------------------------------------------------------------------------
 //------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY-----------------------------
@@ -103,9 +104,7 @@ function sumar () {
     
     // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
     valor = (valor == null || valor == undefined || valor == "") ? 0 : valor;
-
     
-    /* Esta es la suma. */
     valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
 
     document.getElementById('total').innerHTML ='$' + valor;
