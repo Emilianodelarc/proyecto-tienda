@@ -76,9 +76,19 @@ function agregar(){
 
    factura();
    carritoLS();
-    sumar();
-    
+   sumar();
+   
 };
+
+function cambioCantidad() {
+    const input = event.target;
+    if(input.value <= 0){
+        input.value = 1
+    }
+     cant = input.value
+     console.log(cant)
+    
+}
 
 //---------------------------------------------------------------------------------------------------
 //------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY-----------------------------
@@ -93,6 +103,7 @@ function sumar () {
     
     // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
     valor = (valor == null || valor == undefined || valor == "") ? 0 : valor;
+
     
     /* Esta es la suma. */
     valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
@@ -102,18 +113,8 @@ function sumar () {
     subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
     document.getElementById('iva').innerHTML = (total - subtotal);
 
-    resultado = document.querySelector('.shoppingCartItemCantidad')
-    resultado2 = Number(resultado.value);
-    console.log(resultado2)
 };
 
-function cambioCantidad(event) {
-    const input = event.target;
-    if(input.value <= 0){
-        input.value = 1
-    }
-    console.log(input)   
-}
 
 //--------------------------------------------------------------------------------------------------------------
 //-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO Y POR ENDE SE BORRA DEL CARRITO------------------------------------------------------
