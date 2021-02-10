@@ -118,6 +118,8 @@ function borrar(producto){
         }
     };
 
+    localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos));
+
     var listaFact = document.getElementById("listaProd");
     var borrarTr=document.querySelector('tr.pro[data-id="'+producto+'"]')
    
