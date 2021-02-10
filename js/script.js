@@ -54,9 +54,9 @@ function agregar(){
     localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos))
    document.getElementById("listaPro").innerHTML += `
    <li class="clearfix" data-id="${nuevoProducto.id}">
-        <img src=${imagenCapturar} class="img-fluid"/>
-        <span class="item-name">${tituloCapturar}</span>
-        <span class="item-price">${precioCaptu}</span>
+        <img src=${nuevoProducto.imagen} class="img-fluid"/>
+        <span class="item-name">${nuevoProducto.titulo}</span>
+        <span class="item-price">${nuevoProducto.precio}</span>
        <!--<button onclick="menosUno();">-</button>
         <input class="shopping-cart-cantidad" id="shoppingCartItemCantidad" type="text"
         value="1">
@@ -71,8 +71,14 @@ function agregar(){
 };
 revisarLocal()
 function revisarLocal() {
-    let carritoLocal = JSON.parse(localStorage.getItem('carritoDeCompras'))
-    console.log(carritoLocal)
+     carritoLocal = JSON.parse(localStorage.getItem('carritoDeCompras'))
+    if (carritoLocal) {
+        carritoLocal.forEach((el)=>{
+            nuevoProducto = el;
+           agregar()
+           console.log(nuevoProducto)
+        })
+    }
 }
 
 function sumar () {
