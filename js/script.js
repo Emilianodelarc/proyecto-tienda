@@ -11,6 +11,7 @@ $( document ).ready(function()
     
   })();
 
+  
 
 
 //---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO------------------------------------------------------------------------------
@@ -20,7 +21,6 @@ const boton = document.querySelectorAll('button#agregar-carrito')
     
     item.addEventListener("click", capturar);
 });
-
 //------------CAPTURO LOS PRODUCTOS -----------------------------------------------------------------------------------------------------
 
 function capturar(event){
@@ -52,7 +52,7 @@ function capturar(event){
 var baseDatos = [];
 function agregar(){
     baseDatos.push(nuevoProducto);
-
+    guardarCarrito();
     
    document.getElementById("listaPro").innerHTML += `
    <li class="clearfix" data-id="${nuevoProducto.id}">
@@ -67,8 +67,8 @@ function agregar(){
    </li>`;
    
    factura();
-   carritoLS();
    sumar();
+   
    
 };
 /*
@@ -139,7 +139,6 @@ function borrar(producto){
         }
     };
    
-    carritoLS();
     sumar();
 }
 //------------------------------FACTURA DE COMPRA-----------------------
@@ -158,35 +157,34 @@ function factura(){
 
 //----------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------DESDE AQUI TODO FUNCIONA CON LOCAL STORAGE--------------------------------------------------------------
+//-------------------------------CAPTURA LOS DATOS DEL USUARIO---------------------------------------------------------------
 //----------------------CARRITO ENVIADO A LOCALSTORAGE------------------------------------------------------------------
 
-function carritoLS(){
-    
-    carritoJSON=JSON.stringify(baseDatos);
-    localStorage.baseDatos = carritoJSON;
-    
-};
 
 //--------------------------------------------------------------------------------------------------------------------------
-//-------------------------------CAPTURA LOS DATOS DEL USUARIO---------------------------------------------------------------
 
 var botonr = document.querySelector('button#registro');
 botonr.addEventListener('click', capturarUsuario);
 
+
 function capturarUsuario(){
     
-    nombre = document.getElementById('nombre').value;
+    nombre = document.getElementById('nombre').value  
     emailCli=document.getElementById('email').value;
-
+    
     nombreCli=document.getElementById('cliente').value = nombre;
     correoCli=document.getElementById('correo').value = emailCli;
     //console.log(nombre);
     
     localStorage.setItem("nombre", nombre);
     localStorage.setItem('email', emailCli);
-    
+
     datosUser();
 };
+
+function guardarCarrito(){
+    if (nombre && nombre.length > 0) localStorage.setItem("carrito_" + nombre.toLowerCase(), JSON.stringify(baseDatos))
+}
 
 //----------------------------------------------------------------------------------------------------------------------------------
 //------------------DATOS DEL USUARIO Y ALERTA SI HAY CARRITO---------------------------------------------------------------------------------
@@ -199,39 +197,38 @@ function datosUser(){
     }
     else {
         document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO '+usuario+ ' <button onclick="checout();" id="salir"><i class="fas fa-sign-out-alt"></i></button</li>'
-        
-        if (localStorage.baseDatos){
-            document.getElementById("alert-carrito").className =
-                "alert alert-danger alert-dismissible fade show";
-            document.getElementById("alert-carrito-texto").innerText =
-            "Terminá tu compra! " + usuario  ;
-    
-        };
+        leerLocalStorage(usuario)
     };
 };
 
 function checout(){
-    localStorage.clear();
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('email');
     document.location.reload(true);
 };
 
 datosUser();
 
+
 //--------------------------------------------------------------------------------------------------------------
 //----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS--------------------------------   
 
-function leerLocalStorage () {
-    
-    dataBaseLS = JSON.parse(localStorage.baseDatos);
-    
-    dataBaseLS.forEach(function (data) {
+function leerLocalStorage (nombre) {
+    var JSONdataBase = localStorage.getItem("carrito_" + nombre.toLowerCase())
+
+    if (JSONdataBase && JSONdataBase.length > 0) {
+         dataBaseLS = JSON.parse(JSONdataBase);
+        dataBaseLS.forEach(function (data) {
         
         data = document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+data.id+'"><img src='+data.imagen+' class="img-fluid"/><span class="item-name">'+data.titulo+'</span><span class="item-price">'+data.precio+'</span><button class="btn boton-cerrar" onclick="borrarLS('+ data.id +');">X</button></li>';
+    
     });
+    }
+    else return [];
+    
     sumarLS();
 };
 
-leerLocalStorage();
 
 //--------------------------------------------------------------------------------------------------------------    
 //---------------------BORRA LOS PRODUCTOS ALMACENDOS EN EL LOCAL STORAGE---------------------------------------  
@@ -251,7 +248,7 @@ function borrarLS(producto){
         };
     };
     
-    carritoLS();
+    guardarCarrito();
     sumarLS();
     //baseDatos.shift();
     console.log(dataBaseLS);
