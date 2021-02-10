@@ -1,7 +1,7 @@
 $( document ).ready(function()
 {
     document.getElementById("modal-login").click()
-    // console.log( "Página cargada en jQuery!" + (new Date()).getMilliseconds() );
+    
 });
 (function(){
  
@@ -50,25 +50,19 @@ function capturar(event){
 
 //------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY-----------------------------------------------------------
 var baseDatos = [];
-
 function agregar(){
     baseDatos.push(nuevoProducto);
 
-    for (let i = 0; i < baseDatos.length; i++) {
-        if (baseDatos[i].innerText === tituloCapturar) {
-            console.log(baseDatos[i]);
-        }
-      }
     
    document.getElementById("listaPro").innerHTML += `
    <li class="clearfix" data-id="${nuevoProducto.id}">
         <img src=${imagenCapturar} class="img-fluid"/>
         <span class="item-name">${tituloCapturar}</span>
         <span class="item-price">${precioCaptu}</span>
-        <button onclick="menosUno();">-</button>
+       <!--<button onclick="menosUno();">-</button>
         <input class="shopping-cart-cantidad" id="shoppingCartItemCantidad" type="text"
         value="1">
-        <button onclick="masUno();">+</button>
+        <button onclick="masUno();">+</button>-->
         <button class="btn boton-cerrar" onclick="borrar(${nuevoProducto.id});">X</button>
    </li>`;
    
@@ -77,18 +71,20 @@ function agregar(){
    sumar();
    
 };
-
+/*
 function masUno(){
      valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
-    document.getElementById('shoppingCartItemCantidad').value= valuer + 1;
+    resultado = document.getElementById('shoppingCartItemCantidad').value= valuer + 1;
+
 }
 function menosUno(){
     valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
-    if(valuer <= 0){
-       valuer = 1;
+
+    if(valuer <= 1){
+        valuer = 1;
     } 
     document.getElementById('shoppingCartItemCantidad').value= valuer - 1;
-}
+}*/
 
 
 //---------------------------------------------------------------------------------------------------
