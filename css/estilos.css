@@ -522,6 +522,12 @@ ul.lista-login {
 .modal-content{
   background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);;
 }
+.modal-body{
+  background: white;
+  text-align: center;
+  font-weight: 800;
+  font-size: 41px;
+}
 /* //popup */
 /*--/envio-grids--*/
 .envio-gd {

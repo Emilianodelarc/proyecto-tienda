@@ -1,8 +1,4 @@
-$( document ).ready(function()
-{
-    document.getElementById("modal-login").click()
-    
-});
+
 (function(){
  
     $( "#cart" ).first().click(function() {
@@ -20,7 +16,10 @@ const boton = document.querySelectorAll('button#agregar-carrito')
     boton.forEach(function (item) {
     
     item.addEventListener("click", capturar);
-});
+})
+//$("button #agregar-carrito").click(function (){
+   // $(this).each(capturar);
+//});
 //------------CAPTURO LOS PRODUCTOS -----------------------------------------------------------------------------------------------------
 
 function capturar(event){
@@ -52,8 +51,7 @@ function capturar(event){
 var baseDatos = [];
 function agregar(){
     baseDatos.push(nuevoProducto);
-    guardarCarrito();
-    
+    localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos))
    document.getElementById("listaPro").innerHTML += `
    <li class="clearfix" data-id="${nuevoProducto.id}">
         <img src=${imagenCapturar} class="img-fluid"/>
@@ -71,24 +69,11 @@ function agregar(){
    
    
 };
-/*
-function masUno(){
-     valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
-    resultado = document.getElementById('shoppingCartItemCantidad').value= valuer + 1;
-
+revisarLocal()
+function revisarLocal() {
+    let carritoLocal = JSON.parse(localStorage.getItem('carritoDeCompras'))
+    console.log(carritoLocal)
 }
-function menosUno(){
-    valuer = parseInt(document.querySelector('.shopping-cart-cantidad').value);
-
-    if(valuer <= 1){
-        valuer = 1;
-    } 
-    document.getElementById('shoppingCartItemCantidad').value= valuer - 1;
-}*/
-
-
-//---------------------------------------------------------------------------------------------------
-//------------ SUMA LOS PRECIO DE LOS PRODUCTOS ALAMACENADOS EN EL ARRAY-----------------------------
 
 function sumar () {
     
@@ -155,16 +140,10 @@ function factura(){
    
 };
 
-//----------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------DESDE AQUI TODO FUNCIONA CON LOCAL STORAGE--------------------------------------------------------------
-//-------------------------------CAPTURA LOS DATOS DEL USUARIO---------------------------------------------------------------
-//----------------------CARRITO ENVIADO A LOCALSTORAGE------------------------------------------------------------------
-
-
 //--------------------------------------------------------------------------------------------------------------------------
 
-var botonr = document.querySelector('button#registro');
-botonr.addEventListener('click', capturarUsuario);
+
+$("#registro").click(capturarUsuario);
 
 
 function capturarUsuario(){
@@ -182,10 +161,6 @@ function capturarUsuario(){
     datosUser();
 };
 
-function guardarCarrito(){
-    if (nombre && nombre.length > 0) localStorage.setItem("carrito_" + nombre.toLowerCase(), JSON.stringify(baseDatos))
-}
-
 //----------------------------------------------------------------------------------------------------------------------------------
 //------------------DATOS DEL USUARIO Y ALERTA SI HAY CARRITO---------------------------------------------------------------------------------
 
@@ -201,6 +176,8 @@ function datosUser(){
     };
 };
 
+$(".btn-cerrar-modal").click(checout);
+
 function checout(){
     localStorage.removeItem('nombre');
     localStorage.removeItem('email');
@@ -209,76 +186,6 @@ function checout(){
 
 datosUser();
 
-
-//--------------------------------------------------------------------------------------------------------------
-//----------------------LECTURA DE LOCLSTORAGE Y CARGA LOS PRODUCTOS ALMACENADOS--------------------------------   
-
-function leerLocalStorage (nombre) {
-    var JSONdataBase = localStorage.getItem("carrito_" + nombre.toLowerCase())
-
-    if (JSONdataBase && JSONdataBase.length > 0) {
-         dataBaseLS = JSON.parse(JSONdataBase);
-        dataBaseLS.forEach(function (data) {
-        
-        data = document.getElementById("listaPro").innerHTML += '<li class="clearfix" data-id="'+data.id+'"><img src='+data.imagen+' class="img-fluid"/><span class="item-name">'+data.titulo+'</span><span class="item-price">'+data.precio+'</span><button class="btn boton-cerrar" onclick="borrarLS('+ data.id +');">X</button></li>';
-    
-    });
-    }
-    else return [];
-    
-    sumarLS();
-};
-
-
-//--------------------------------------------------------------------------------------------------------------    
-//---------------------BORRA LOS PRODUCTOS ALMACENDOS EN EL LOCAL STORAGE---------------------------------------  
-
-function borrarLS(producto){
-    var listaFunc = document.getElementById("listaPro");
-    
-    //var borrarElemento = document.querySelector("li.clearfix[data-id=' " + producto + "'] ");
-    borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
-    
-    listaFunc.removeChild(borrarElemento);
-    
-    for (var i =0; i < dataBaseLS.length; i++){
-        if (dataBaseLS[i].id == producto) {
-            dataBaseLS.splice(i,1);
-            
-        };
-    };
-    
-    guardarCarrito();
-    sumarLS();
-    //baseDatos.shift();
-    console.log(dataBaseLS);
-    borrarFactu(data.id);
-};
-
-//----------------------------------------------------------------------------------------------------------------    
-//---------------------sUMA LOS PRODUCTOS DEL LOCAL STORAGE-------------------------------------------------------
-
-function sumarLS(){
-    conteoCant = dataBaseLS.length;
-    document.getElementById("cont1").innerHTML = conteoCant;
-    document.getElementById("cont2").innerHTML = conteoCant
-    
-    valor2 = document.getElementById('total').textContent;
-    
-    
-    // Aquí valido si hay un valor previo, si no hay datos, le pongo un cero "0".
-    valor2 = (valor2 == null || valor2 == undefined || valor2 == "") ? 0 : valor2;
-    
-    /* Esta es la suma. */
-    valor2 = dataBaseLS.reduce((acc, el) => acc + el.precio,0);
-    
-    
-    // Colocar el resultado de la suma en el control "span".
-    document.getElementById('total').innerHTML ='$' + valor2;
-    registroLS();
-};
-
-//----------------------------------------------------------------------------------------------------------------------
 //------------------------REALIZA LA CARGA DE DATOS PARA LA FACTURA-----------------------------------------------------
 
 function compra(){
