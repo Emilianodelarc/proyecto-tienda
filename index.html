@@ -17,17 +17,22 @@
 		<!--BARRA MENU-->
 		<header class="header__index">
 			<nav class="container-fluid nav">
-				<ul class="navbar-left">
-					<li>
-						<a href="index.html">Inicio</a>
-					</li>
-					<li>
-						<a href="contacto.html">Contacto</a>
-					</li>
-					<li>
-						<a href="#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">  
+					<ul class="navbar-left">
+						<li>
+							<a href="index.html">Inicio</a>
+						</li>
+						<li>
+							<a href="contacto.html">Contacto</a>
+						</li>
+						<li>
+							<a href="#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
+						</li>
+					</ul>
+				</div>	
 				<!--BOTON CARRITO-->
 				<ul id="nombreUsuario1"></ul>
 				<ul class="navbar-right">
@@ -53,7 +58,7 @@
 					<ul class="shopping-cart-items" id="listaPro">
 					
 					</ul>
-					<a href="#compag" class="button" >Comprar</a>
+					<a href="compra.html" class="button" >Comprar</a>
 				</div> 
 			</div> 
 			<!--FIN DE CONTENIDO DEL CARRITO-->
@@ -211,7 +216,7 @@
 									</div>
 									<div class="field-group">
 										<div class="entrada-datos">
-											<input  id="telefono" type="number"  placeholder="telefono" >
+											<input  id="telefono" type="text"  placeholder="telefono" >
 										</div>
 									</div>
 									<div class="entrada-datos">
@@ -223,88 +228,9 @@
 								</form>
 							</div>
 						</div>
-						<div id="compag" class="popup-efecto">
-							<div class="popup-1">
-								<a class="close" href="#gallery">&times;</a>
-								<form id="procesar-pago" action="#">
-									<div class="form-group row">
-										<label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
-										<div class="col-12 col-md-10">
-											<input type="text" class="form-control" id="cliente"
-											placeholder="Ingresa nombre cliente" required>
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
-										<div class="col-12 col-md-10">
-											<input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
-										</div>
-									</div>
-									<div id="carrito" class="table-responsive">
-										<table class="table table-hover" id="lista-compra">
-											<thead class="table-info">
-												<tr>
-													<th scope="col">Nombre</th>
-													<th scope="col">Precio</th>
-												</tr>
-											</thead>
-											<tbody id="listaProd">
-
-											</tbody>
-											<tr>
-												<th scope="col" >SUB TOTAL :</th>
-												<th scope="col">
-													<p id="subtotalFact"></p>
-												</th>
-											</tr>
-											<tr>
-												<th scope="col" >Iva:21%</th>
-												<th scope="col">
-													<p id="iva"></p>
-												</th>
-											</tr>
-											<tr>
-												<th scope="col" c>TOTAL :</th>
-												<th scope="col">
-													<p id="totalFact"></p>
-												</th>
-											</tr>
-										</table>
-									</div>
-									<div class="row justify-content-between">
-										<div class="col-md-4 mb-2">
-											<a href="#" class="btn btn-info btn-block">Seguir comprando</a>
-										</div>
-										<div class="col-xs-12 col-md-4">
-										<button class="btn btn-success ml-auto comprarButton" type="button" data-toggle="modal"
-										data-target="#comprarModal">Realizar Comprar</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
-			<div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Pronto recibirá su pedido</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-cerrar-modal btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 		</section>
 		<!--fin de popups Y DE GALERIA TENDENCIA-->
 		<!--Galeria de productos BLACK FRIDAY-->
@@ -479,11 +405,7 @@
 					<div class="col-lg-3 footer_gridf mt-md-0 mt-sm-4 mt-3">
 						<ul class="footer_gridf_list">
 							<li>
-								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span> Login </a>
-							</li>
-
-							<li>
-								<a href="#S"><span class="fa fa-angle-right" aria-hidden="true"></span>Registro</a>
+								<a href="#regis"><span class="fa fa-angle-right" aria-hidden="true"></span>Registro</a>
 							</li>
 							<li>
 								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span>Politica & Privacidad</a>
@@ -509,7 +431,7 @@
 					</div>
 				</div>
 				<div class="move-top text-center mt-lg-4 mt-3">
-					<a href="#"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
+					<a href="#" class="up-up"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
 				</div>
 			</div>
 			<div class="cpy-right text-center py-3">
@@ -520,7 +442,6 @@
 		</footer>
 		<!--FIN DE FOOTER-->
 		<script src="https://use.fontawesome.com/1c43f54811.js"></script>
-		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 	</body>

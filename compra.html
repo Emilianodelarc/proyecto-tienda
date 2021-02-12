@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&family=Nunito:wght@200&family=Raleway:wght@100&family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&family=Satisfy&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fraunces&display=swap" rel="stylesheet">
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script defer src="js/script.js"></script>
+        <script defer src="js/compra.js"></script>
+        <title>Tienda | Compra</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <main>
+            <header class="header__index">
+                <nav class="container-fluid nav">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <ul class="navbar-left">
+                            <li>
+                                <a href="index.html">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="contacto.html">Contacto</a>
+                            </li>
+                            <li>
+                                <a href="#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
+                            </li>
+                        </ul>
+                       </div> 
+                    <!--BOTON CARRITO-->
+                    <ul id="nombreUsuario1"></ul>
+                    <ul class="navbar-right">
+                        <li>
+                            <a href="#" id="cart">
+                                <i class="fa fa-shopping-cart"></i>Cart <span class="conteo" id="cont1">0</span>
+                            </a>
+                        </li>
+                    </ul> 
+                </nav>
+                <!--FIN DE MENU-->
+                <!--CONTENIDO DEL CARRITO--> 
+                <div class="container-fluid">
+                    <div class="shopping-cart">
+                        <div class="shopping-cart-header">
+                            <i class="fa fa-shopping-cart cart-icon"></i><span class="conteo" id="cont2">0</span>
+                            <div class="shopping-cart-total">
+                                <span class="lighter-text">Total:</span>
+                                <span class="main-color-text" id="total">$0</span>
+                            </div>
+                        </div> 
+    
+                        <ul class="shopping-cart-items" id="listaPro">
+                        
+                        </ul>
+                        <a href="compra.html" class="button" >Comprar</a>
+                    </div> 
+                </div> 
+                <!--FIN DE CONTENIDO DEL CARRITO-->
+                <!--BANNER PRINCIPAL-->
+                <div class="banner-info container">
+                    <div class="row">
+                        <div class="col-lg-5 banner-left-info-1">
+                            <h3>El tic tac de los relojes parece <span>un ratón que roe el tiempo.</span></h3>
+                        </div>
+        
+                        <div class="col-lg-7 banner-img">
+                            <img src="img/1.png" alt="part image" class="img-fluid imagen">
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section id="regis" class="popup-efecto">
+                <div class="popup">
+                    <a class="close" href="#gallery">&times;</a>
+                    <form>
+                        <div class="field-group">
+                            <div class="entrada-datos">
+                                <input  id="nombre" type="text" placeholder="Nombre y Apellido" required>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <div class="entrada-datos">
+                                <input id="email" type="email"  placeholder="example@example.com" required>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <div class="entrada-datos">
+                                <input  id="telefono" type="text"  placeholder="telefono" required>
+                            </div>
+                        </div>
+                        <div class="entrada-datos">
+                            <button id="registro" class="btn"><a href="#" class="regis"> Registrarse</a></button>
+                        </div>
+                        <div class="list-login-bottom text-center mt-lg-5 mt-4">
+                            <a href="#" class="">*Al hacer clic en Registrarse, acepta los términos</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="container">
+                <div class="row mt-3">
+                    <div class="col">
+                        <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
+                        <form id="procesar-pago" action="#">
+                            <div class="form-group row">
+                                <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                                <div class="col-12 col-md-10">
+                                    <input type="text" class="form-control" id="cliente" placeholder="Ingresa nombre cliente" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                                <div class="col-12 col-md-10">
+                                    <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12 col-md-10">
+                                    <p id="datoTel" class="avisoFactu"></p>
+                                </div>
+                            </div>
+                            <div id="carrito" class="table-responsive">
+                                <table class="table table-hover" id="lista-compra">
+                                    <thead class="table-info">
+                                        <tr>
+                                            <th scope="col">Producto</th>
+                                            <th scope="col">Precio</th>
+                                            <th scope="col">Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaProd">
+
+                                    </tbody>
+                                    <tr>
+                                        <th scope="col" >SUB TOTAL :</th>
+                                        <th scope="col">
+                                            <p id="subtotalFact">$</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" >Iva:21%</th>
+                                        <th scope="col">
+                                            <p id="iva">$</p>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" c>TOTAL :</th>
+                                        <th scope="col">
+                                            <p id="totalFact">$</p>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row botones-factura">
+                                <div class="col-md-4 mb-2">
+                                    <a href="index.html#black" class="btn btn-info btn-block">Seguir comprando</a>
+                                </div>
+                                <div class="col-xs-12 col-md-4">
+                                <button class="btn btn-success btn-block comprarButton" type="button" data-toggle="modal"
+                                data-target="#comprarModal">Realizar Comprar</button>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p id="cuerpoModal"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-cerrar-modal btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <p id="datTel" class="avisoFactu"></p>
+                    </div>
+                </div>
+            </section>
+            <!--NEWLETTER-->
+            <section class="newsletter py-5">
+                <div class="container py-md-5">
+                    <form method="post" action="#">
+                        <p class="parrafo-newletter">Suscríbase a la lista de correo de Watch-Wish para recibir actualizaciones sobre recién llegados, ofertas especiales y otra información sobre descuentos.</p>
+                    <div class="row subscribe-sec">
+                            <div class="col-md-9">
+                                <input type="email" class="form-control" id="email" placeholder="example@example.com" name="email" required="">
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn submit">Suscribirse</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <!--FIN DE NEWLETTER-->
+            <!--PUBLICIDAD-->
+            <section class="envio">
+                <div class="envio-grids d-lg-flex">
+                    <div class="col-lg-4 envio-gd text-center">
+                        <div class="icon-gd"><span class="fa fa-truck" aria-hidden="true"></span>
+                        </div>
+                        <div class="icon-gd-info">
+                            <h3>ENVÍO GRATIS</h3>
+                            <p>En todos los pedidos superiores a $ 2000</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 envio-gd sec text-center">
+                        <div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
+                        <div class="icon-gd-info">
+                            <h3>DEVOLUCIÓN GRATUITA</h3>
+                            <p>En el primer intercambio en 30 días</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 envio-gd text-center">
+                        <div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true"></span></div>
+                        <div class="icon-gd-info">
+                            <h3>DESCUENTO PARA MIEMBROS</h3>
+                            <p>Regístrese y ahorre hasta $ 29%</p>
+                        </div>
+        
+                    </div>
+                </div>
+            </section>
+        </main>
+		<!--FIN DE PUBLICIDAD-->
+		<!-- FOOTER-->
+        <footer class="footer_agileinfo_topf">
+			<div class="container-footer py-md-5">
+				<div class="row">
+					<div class="col-lg-3 footer_gridf mt-lg-5">
+						<h2><a href="index.html"><span>Watch</span>Wish</a> </h2>
+						<label class="sub-des2">Tienda Online</label>
+					</div>
+					<div class="col-lg-3 footer_gridf mt-md-0 mt-4">
+						<ul class="footer_gridf_list">
+							<li>
+								<a href="index.html"><span class="fa fa-angle-right" aria-hidden="true"></span>Inicio</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span> Sobre Nosotros</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span> Tienda</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-3 footer_gridf mt-md-0 mt-sm-4 mt-3">
+						<ul class="footer_gridf_list">
+							<li>
+								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span> Terminos & Condiciones</a>
+							</li>
+							<li>
+								<a href="#black"><span class="fa fa-angle-right" aria-hidden="true"></span> Black Friday</a>
+							</li>
+							<li>
+								<a href="contacto.html"><span class="fa fa-angle-right" aria-hidden="true"></span> Contacto</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-lg-3 footer_gridf mt-md-0 mt-sm-4 mt-3">
+						<ul class="footer_gridf_list">
+							<li>
+								<a href="#regis"><span class="fa fa-angle-right" aria-hidden="true"></span>Registro</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span>Politica & Privacidad</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="fsocial-grid">
+					<h3 class="sub-headf">Siguenos</h3>
+					<div class="social-ficons">
+						<ul>
+							<li>
+								<a href="#"><span class="fa fa-facebook"></span> Facebook</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-twitter"></span> Twitter</a>
+							</li>
+							<li>
+								<a href="#"><span class="fa fa-google"></span>Google</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="move-top text-center mt-lg-4 mt-3">
+					<a href="#" class="up-up"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
+				</div>
+			</div>
+			<div class="cpy-right text-center py-3">
+				<p>© 2020 Watch-Wish. Tienda Online | Design by
+					<a href="#"> EM.DE.AR.</a>
+				</p>
+			</div>
+		</footer>
+        <script src="https://use.fontawesome.com/1c43f54811.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </body>
+</html>

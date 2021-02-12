@@ -180,7 +180,7 @@ clear: both;
   text-transform: uppercase;
   color: #333;
   margin-bottom: 0.7em;
-
+  font-family: 'Nunito';
 }
 
 .banner-info h3 span {
@@ -439,7 +439,7 @@ clear: both;
   border-radius: 4px;
   max-width: 688px;
   position: relative;
-  margin: 8em auto;
+  margin: 1em auto;
   padding: 3em 2em;
   z-index: 999;
   text-align: center;
@@ -503,31 +503,7 @@ ul.lista-login {
 .videoIndex{
   width: 470px;
 }
-.modal-title{
-  transform: skew(-10deg);
-  display: block;
-  float: left;
-  text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
-  min-width: 10px;
-  min-height: 10px;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 42px;
-  margin: 0;
-  line-height: 47px;
-  letter-spacing: 2px;
-  color: #e55643;
-  text-align: center;
-}
-.modal-content{
-  background: linear-gradient(to bottom, #405166 0%,#656f6f 100%);;
-}
-.modal-body{
-  background: white;
-  text-align: center;
-  font-weight: 800;
-  font-size: 41px;
-}
+
 /* //popup */
 /*--/envio-grids--*/
 .envio-gd {
@@ -856,9 +832,21 @@ h3.sub-headf {
   padding: 9px;
   margin-bottom: 17px;
 }
+.avisoFactu{
+  color: red;
+  text-align: center;
+  padding: 15px;
+}
+.botones-factura{
+  justify-content: space-between;
+}
+.cantidad{
+  border: 1px solid;
+  text-align: center;
+}
 /*-----Responsive-----*/
 @media screen and (min-width: 768px){
-	
+
 	.titulo-destacados{
 		justify-content: space-around!important;
 		align-items: center;
@@ -875,4 +863,14 @@ h3.sub-headf {
 		text-align: center;
 	}
 }
-	
+
+@media (max-width: 500px){
+  .navbar-left {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  ul,li{
+    display: inline-block;
+  }
+}

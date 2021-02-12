@@ -17,17 +17,22 @@
 	<body>
 		<header class="header__index">
 			<nav class="container-fluid nav">
-				<ul class="navbar-left">
-					<li>
-						<a href="index.html">Inicio</a>
-					</li>
-					<li>
-						<a href="contacto.html">Contacto</a>
-					</li>
-					<li>
-						<a href="index.html#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+				  </button>
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+					<ul class="navbar-left">
+						<li>
+							<a href="index.html">Inicio</a>
+						</li>
+						<li>
+							<a href="contacto.html">Contacto</a>
+						</li>
+						<li>
+							<a href="index.html#regis"><i class="fa fa-pencil-square-o"></i>Registrarse</a>
+						</li>
+					</ul>
+				</div>
 				<!--BOTON CARRITO-->
 				<ul id="nombreUsuario1"></ul>
 				<ul class="navbar-right">
@@ -114,11 +119,7 @@
 					<div class="col-lg-3 footer_gridf mt-md-0 mt-sm-4 mt-3">
 						<ul class="footer_gridf_list">
 							<li>
-								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span> Login </a>
-							</li>
-
-							<li>
-								<a href="#S"><span class="fa fa-angle-right" aria-hidden="true"></span>Registro</a>
+								<a href="#regis"><span class="fa fa-angle-right" aria-hidden="true"></span>Registro</a>
 							</li>
 							<li>
 								<a href="#"><span class="fa fa-angle-right" aria-hidden="true"></span>Politica & Privacidad</a>
@@ -144,7 +145,7 @@
 					</div>
 				</div>
 				<div class="move-top text-center mt-lg-4 mt-3">
-					<a href="#"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
+					<a href="#" class="up-up"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
 				</div>
 			</div>
 			<div class="cpy-right text-center py-3">
@@ -154,5 +155,7 @@
 			</div>
 		</footer>
 		<script src="https://use.fontawesome.com/1c43f54811.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 	</body>
 </html>

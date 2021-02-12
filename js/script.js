@@ -1,12 +1,24 @@
 
 (function(){
  
-    $( "#cart" ).first().click(function() {
-        $( ".shopping-cart" ).first().fadeToggle( "slow", "linear" );
+    $( "#cart" ).click(function() {
+        $( ".shopping-cart").fadeToggle( "slow", "linear" );
       });
     
   })();
 
+$(".shop").click(function(event) {
+    event.preventDefault();
+    $('html, body').animate({
+    scrollTop: $("#black").offset().top
+    }, 2000);
+});
+$(".up-up").click(function(event) {
+    event.preventDefault();
+    $('html, body').animate({
+    scrollTop: $(".header__index").offset().top
+    }, 2000);
+});
   
 
 
@@ -64,12 +76,13 @@ function agregar(){
         <button class="btn boton-cerrar" onclick="borrar(${nuevoProducto.id});">X</button>
    </li>`;
    
-   factura();
    sumar();
    
    
 };
-revisarLocal()
+
+revisarLocal();
+
 function revisarLocal() {
      carritoLocal = JSON.parse(localStorage.getItem('carritoDeCompras'))
     if (carritoLocal) {
@@ -95,9 +108,7 @@ function sumar () {
     valor = baseDatos.reduce((acc, el) => acc + el.precio,0);
 
     document.getElementById('total').innerHTML ='$' + valor;
-    total = document.getElementById('totalFact').innerHTML = valor;
-    subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
-    document.getElementById('iva').innerHTML = (total - subtotal);
+    
 
 };
 
@@ -120,33 +131,11 @@ function borrar(producto){
 
     localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos));
 
-    var listaFact = document.getElementById("listaProd");
-    var borrarTr=document.querySelector('tr.pro[data-id="'+producto+'"]')
-   
-    listaFact.removeChild(borrarTr);
-
-    for (var i =0; i < baseDatos.length; i++){
-        if (baseDatos[i].id == producto) {
-            baseDatos.splice(i,1);
-            
-        }
-    };
-   
     sumar();
+    
 }
 //------------------------------FACTURA DE COMPRA-----------------------
-function factura(){
-    fact=document.getElementById('listaProd');
-    fact.innerHTML="";
-    baseDatos.forEach(function (prod){
-        prod = document.getElementById('listaProd').innerHTML += 
-        `<tr class="pro" data-id="${prod.id}">
-            <td>${prod.titulo}</td>
-            <td>${prod.precio}</td>
-        </tr>`;
-    });
-   
-};
+
 
 //--------------------------------------------------------------------------------------------------------------------------
 
@@ -156,17 +145,16 @@ $("#registro").click(capturarUsuario);
 
 function capturarUsuario(){
     
-    nombre = document.getElementById('nombre').value  
+    nombre = document.getElementById('nombre').value;
     emailCli=document.getElementById('email').value;
-    
-    nombreCli=document.getElementById('cliente').value = nombre;
-    correoCli=document.getElementById('correo').value = emailCli;
-    //console.log(nombre);
+    telefono=document.getElementById('telefono').value;
     
     localStorage.setItem("nombre", nombre);
     localStorage.setItem('email', emailCli);
+    localStorage.setItem('telefono', telefono);
 
     datosUser();
+    
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -174,69 +162,30 @@ function capturarUsuario(){
 
 function datosUser(){
     usuario = localStorage.getItem('nombre');
+    telFactur = localStorage.getItem('telefono')
     //console.log(usuario);
     if(!usuario){
         document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO! veo que no estas Registrado!</li>'
     }
     else {
-        document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO '+usuario+ ' <button onclick="checout();" id="salir"><i class="fas fa-sign-out-alt"></i></button</li>'
-        leerLocalStorage(usuario)
+        document.getElementById("nombreUsuario1").innerHTML = `
+        <li>BIENVENIDO ${usuario} 
+            <button onclick="checout();" id="salir">
+                <i class="fas fa-sign-out-alt"></i>
+            </button
+        </li>`
     };
+    
 };
 
 $(".btn-cerrar-modal").click(checout);
 
 function checout(){
-    localStorage.removeItem('nombre');
-    localStorage.removeItem('email');
+    localStorage.clear();
     document.location.reload(true);
 };
 
 datosUser();
 
-//------------------------REALIZA LA CARGA DE DATOS PARA LA FACTURA-----------------------------------------------------
 
-function compra(){
-    user= localStorage.getItem('nombre');
-    email=localStorage.getItem('email');
-    console.log(user,email)
-    
-    cliente=document.getElementById('cliente').value = user;
-    correo=document.getElementById('correo').value = email;              
-};
 
-compra();
-
-function registroLS(){
-    factLS=document.getElementById('listaProd');
-    factLS.innerHTML="";
-    dataBaseLS.forEach(function (item) {
-        item = document.getElementById('listaProd').innerHTML += 
-        `<tr class="pro" data-id="${item.id}">
-            <td>${item.titulo}</td>
-            <td>${item.precio}</td>
-        </tr>`;
-    });
-    total = document.getElementById('totalFact').innerHTML = valor2;
-    subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor2 / 1.21);
-    document.getElementById('iva').innerHTML = (total - subtotal);
-    
-};
-
-//---------------------------BORRA LA LISTA DE LOS PRODUCTOS EN LA FACTURA-----------------------------------------------------
-
-function borrarFactu(producto){
-    var listaFact = document.getElementById("listaProd");
-   var borrarTr=document.querySelector('tr.pro[data-id="'+producto+'"]')
-   
-   listaFact.removeChild(borrarTr);
-
-    for (var i =0; i < baseDatos.length; i++){
-        if (baseDatos[i].id == producto) {
-            baseDatos.splice(i,1);
-            
-        };
-    }
-    
-};
-//-------------------------------------------------------------------------------------------------------------------------------
