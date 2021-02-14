@@ -69,7 +69,6 @@ function veamos (event) {
     var elemento = event.srcElement ? event.srcElement : event.target;
     var id = elemento.id
     //console.log(id)
-    input = 1
     input = document.getElementById(`${id}`).value;
     //console.log(input)
     precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
@@ -90,7 +89,7 @@ function cambioPrecioTabla(id_id){
         }
     }
     sumaPreCAnt()
-}
+};
 
 
 

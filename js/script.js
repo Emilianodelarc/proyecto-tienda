@@ -16,10 +16,10 @@ $(".shop").click(function(event) {
 $(".up-up").click(function(event) {
     event.preventDefault();
     $('html, body').animate({
-    scrollTop: $(".header__index").offset().top
+        scrollTop: $(".header__index").offset().top
     }, 2000);
 });
-  
+
 
 
 //---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO------------------------------------------------------------------------------
@@ -88,11 +88,7 @@ function agregar(){
         <img src=${nuevoProducto.imagen} class="img-fluid"/>
         <span class="item-name">${nuevoProducto.titulo}</span>
         <span class="item-price">${nuevoProducto.precio}</span>
-       <!--<button onclick="menosUno();">-</button>
-        <input class="shopping-cart-cantidad" id="shoppingCartItemCantidad" type="text"
-        value="1">
-        <button onclick="masUno();">+</button>-->
-        <button class="btn boton-cerrar" onclick="borrar(${nuevoProducto.id});">X</button>
+        <button class="btn boton-borrar-elemento" id="borraElemento${nuevoProducto.id}" onclick="borrar(${nuevoProducto.id});">X</button>
    </li>`;
    
    sumar();
@@ -133,7 +129,8 @@ function sumar () {
 
 
 //--------------------------------------------------------------------------------------------------------------
-//-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO Y POR ENDE SE BORRA DEL CARRITO------------------------------------------------------
+//-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO Y POR ENDE SE BORRA DEL CARRITO---------
+
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
 
@@ -144,7 +141,6 @@ function borrar(producto){
     for (var i =0; i < baseDatos.length; i++){
         if (baseDatos[i].id == producto) {
             baseDatos.splice(i,1);
-            
         }
     };
 
