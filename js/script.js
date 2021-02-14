@@ -58,21 +58,26 @@ function capturar(event){
     
     console.log(idProducto)
     revicion(idProducto);
-    agregar();
+    //agregar();
 };
 
 //------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY-----------------------------------------------------------
 var baseDatos = [];
 
-function revicion(revisar){
-    if(baseDatos.includes(revisar[0]) == false){
-        console.log('agregar');
-        console.log(revisar)
-    }
-    else{
-        console.log('no se puede')
-    }
+function revicion (id){
+
+   if( baseDatos.find(producto => producto.id === id)){
+    document.getElementById("alert-modalAlerta").className =
+    "alert alert-danger alert-dismissible fade show";
+    document.getElementById("alert-modalAlerta-texto").innerText =
+    "La cantidad podrá modificarla en la factura, al finalizar su selección";
+   }else{
+       agregar();
+   }
+
 }
+    
+
 
 
 function agregar(){
@@ -177,7 +182,6 @@ function capturarUsuario(){
 
 function datosUser(){
     usuario = localStorage.getItem('nombre');
-    telFactur = localStorage.getItem('telefono')
     //console.log(usuario);
     if(!usuario){
         document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO! veo que no estas Registrado!</li>'

@@ -23,7 +23,7 @@ function compra() {
 
     document.getElementById('cliente').value = user;
     document.getElementById('correo').value = email;
-
+    remito = 157;
     if(!telefono && telefono == null | telefono == ''){
         document.getElementById('datTel').innerHTML = `*Para hacer uso de este servicio, por favor debe <a href="#regis">Registrarse</a>`;
         factuComp = document.getElementById('listaProd');
@@ -35,8 +35,9 @@ function compra() {
         }
     }
     else{
+        remito++
         document.getElementById('datTel').innerHTML = `Nos pondremos en contacto para coordinar la entrega, los mismo seran ajustados a la REGULACIÓN SANITARIA VIGENTE.`
-        document.getElementById('cuerpoModal').innerHTML = `Pronto recibirá su pedido, nos contactaremos al número ${telefono}`
+        document.getElementById('cuerpoModal').innerHTML = `Pronto recibirá su pedido, nos contactaremos al número ${telefono}, su remito es el N° ${remito}`
     };
 };
 
