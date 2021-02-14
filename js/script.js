@@ -56,13 +56,23 @@ function capturar(event){
 
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     
-   agregar();
+    console.log(idProducto)
+    revicion(idProducto);
+    agregar();
 };
 
 //------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY-----------------------------------------------------------
 var baseDatos = [];
 
-
+function revicion(revisar){
+    if(baseDatos.includes(revisar[0]) == false){
+        console.log('agregar');
+        console.log(revisar)
+    }
+    else{
+        console.log('no se puede')
+    }
+}
 
 
 function agregar(){

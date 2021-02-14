@@ -5,7 +5,7 @@ function factura(){
         prod = document.getElementById('listaProd').innerHTML += 
         `<tr class="pro" data-id="${prod.id}">
             <td>${prod.titulo}</td>
-            <td id="precioFc-${prod.id}">${prod.precio}</td>
+            <td class="precio" id="precioFc-${prod.id}">${prod.precio}</td>
             <td><input type="number" class="cantidad" id="${prod.id}" value="1" min='1' max='5' onclick="veamos(event);"></td>
         </tr>`;
 
@@ -51,12 +51,18 @@ function borrarFC(producto) {
     sumarFC();
 };
 
-$('.cantidad').each(function () { 
-   $(this).change(function () {
-       console.log('hola')
-   })
-})
+function sumarFC(){;
+    total = document.getElementById('totalFact').innerHTML = valor;
+    subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
+    document.getElementById('iva').innerHTML = (total - subtotal);
+    
+};
 
+
+
+$('.cantidad').each(function () { 
+   $(this).change()
+})
 
 function veamos (event) {
     var elemento = event.srcElement ? event.srcElement : event.target;
@@ -68,19 +74,42 @@ function veamos (event) {
     precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
     //console.log(precioProdFc)
     cambiaValor = precioProdFc * input;
-    console.log(cambiaValor)
-    //cambioPrecioTabla(id)
+    //console.log(cambiaValor)
+    cambioPrecioTabla(id)
 };
-/*
-function cambioPrecioTabla(id){
-    document.getElementById(`precioFc-${id}`).innerHTML = cambiaValor;
-}*/
-//cantiSumRest = document.getElementsByTagName
 
-function sumarFC(){;
-    total = document.getElementById('totalFact').innerHTML = valor;
-    subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
+function cambioPrecioTabla(id_id){
+    for(var i = 0; i< baseDatos.length; i++){
+        if(baseDatos[i].id == id_id){
+            prueba = baseDatos[i].precio;
+            //console.log(prueba);
+            prueba2 = prueba * input;
+            document.getElementById(`precioFc-${id_id}`).innerHTML= prueba2;
+
+        }
+    }
+    sumaPreCAnt()
+}
+
+
+
+data = [];
+
+function sumaPreCAnt(){
+    data.length =0;
+    $("td.precio").each(function(){
+    data.push(parseInt($(this).text()));
+    });
+
+     suma = data.reduce(function(a,b){ return a+b; },0);
+
+    //console.log(data);
+    //console.log(suma);
+    sumaTotales();
+}
+
+function sumaTotales(){
+    total = document.getElementById('totalFact').innerHTML = suma;
+    subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(suma / 1.21);
     document.getElementById('iva').innerHTML = (total - subtotal);
-    
-};
-
+}
