@@ -56,11 +56,15 @@ function capturar(event){
 
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     
-    agregar();
+   agregar();
 };
 
 //------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY-----------------------------------------------------------
 var baseDatos = [];
+
+
+
+
 function agregar(){
     baseDatos.push(nuevoProducto);
     localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos))
@@ -132,6 +136,7 @@ function borrar(producto){
     localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos));
 
     sumar();
+    borrarFC(producto);
     
 }
 //------------------------------FACTURA DE COMPRA-----------------------

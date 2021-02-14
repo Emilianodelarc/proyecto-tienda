@@ -5,13 +5,15 @@ function factura(){
         prod = document.getElementById('listaProd').innerHTML += 
         `<tr class="pro" data-id="${prod.id}">
             <td>${prod.titulo}</td>
-            <td>${prod.precio}</td>
-            <td><button onclick="borrarFC(${prod.id});">X</button></td>
+            <td id="precioFc-${prod.id}">${prod.precio}</td>
+            <td><input type="number" class="cantidad" id="${prod.id}" value="1" min='1' max='5' onclick="veamos(event);"></td>
         </tr>`;
-    });
 
+    });
+   
     sumarFC();
-};
+}  
+
 factura();
 compra();
 function compra() {
@@ -46,18 +48,39 @@ function borrarFC(producto) {
    
     listaFact.removeChild(borrarTr);
 
-    borrar(producto);
     sumarFC();
-}
+};
+
+$('.cantidad').each(function () { 
+   $(this).change(function () {
+       console.log('hola')
+   })
+})
 
 
+function veamos (event) {
+    var elemento = event.srcElement ? event.srcElement : event.target;
+    var id = elemento.id
+    //console.log(id)
+    input = 1
+    input = document.getElementById(`${id}`).value;
+    //console.log(input)
+    precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
+    //console.log(precioProdFc)
+    cambiaValor = precioProdFc * input;
+    console.log(cambiaValor)
+    //cambioPrecioTabla(id)
+};
+/*
+function cambioPrecioTabla(id){
+    document.getElementById(`precioFc-${id}`).innerHTML = cambiaValor;
+}*/
+//cantiSumRest = document.getElementsByTagName
 
-
-function sumarFC(){
+function sumarFC(){;
     total = document.getElementById('totalFact').innerHTML = valor;
     subtotal= document.getElementById('subtotalFact').innerHTML = parseInt(valor / 1.21);
     document.getElementById('iva').innerHTML = (total - subtotal);
     
 };
-
 
