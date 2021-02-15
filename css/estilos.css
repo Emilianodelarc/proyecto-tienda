@@ -466,12 +466,6 @@ clear: both;
   text-decoration: none;
   color: #000;
 }
-ul.lista-login {
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-  display: flex;
-}
-
 
 .entrada-datos button.btn {
   background: #ec1c24;
@@ -845,6 +839,13 @@ h3.sub-headf {
 .cantidad{
   border: 1px solid;
   text-align: center;
+}
+.img-factura-pie, .img-modal-body{
+  width: 200px;
+}
+.barbijo{
+  display: block;
+  margin: auto;
 }
 /*-----Responsive-----*/
 @media screen and (min-width: 768px){
