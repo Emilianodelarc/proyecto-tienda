@@ -7,7 +7,9 @@ function factura(){
         `<tr class="pro" data-id="${prod.id}">
             <td>${prod.titulo}</td>
             <td class="precio" id="precioFc-${prod.id}">${prod.precio}</td>
-            <td><input type="number" class="cantidad" id="${prod.id}"  min='1' max='5' value="1" onclick="veamos(event);"></td>
+            <td id="nuevoInput${prod.id}">
+                <input type="number" class="cantidad" id="${prod.id}"  min='1' max='5' value="1" onchange="veamos(event);">
+            </td>
         </tr>`;
 
     });
@@ -66,15 +68,18 @@ function sumarFC(){;
 
 
 //SE PUEDE CAMBIAR LA CANTIDAD DEL PRODUCTO
-$('.cantidad').each(function () { 
-   $(this).change()
-})
+//$('.cantidad').each(function () { 
+  // $(this).change(veamos)
+//})//
 //SE OBTIENE EL ID DEL INPUT QUE SE ESTA LLAMANDO Y SE TOMA SU VALOR
 function veamos (event) {
     var elemento = event.srcElement ? event.srcElement : event.target;
     var id = elemento.id
     //console.log(id)
     input = document.getElementById(`${id}`).value;
+    document.getElementById(`nuevoInput${id}`).innerHTML= `
+    <input type="number" class="cantidad" id="${id}"  min='1' max='5' value="${input}" onchange="veamos(event);">`
+
     
     //console.log(input)
     precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
@@ -121,13 +126,13 @@ function sumaTotales(){
 function imprim2(){
     var mywindow = window.open('', 'PRINT', 'height=700,width=900');
     mywindow.document.write('<html><head>');
-	mywindow.document.write('<style>#procesar-pago{background:url(../img/floating.cogs.svg);}.table{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.table th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:center;font-size:15px;}.table td{border:1px solid #ddd;text-align:left;padding:6px;}#seguir, #realizar, #impri, #aceptar, #cruz{display:none;}</style>');
+	mywindow.document.write('<style>.table{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.table th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:center;font-size:15px;}.table td{border:1px solid #ddd;text-align:left;padding:6px;}#seguir, #realizar, #impri, #aceptar, #cruz{display:none;}</style>');
     mywindow.document.write('</head><body>');
     mywindow.document.write(document.getElementById('procesar-pago').innerHTML);
     mywindow.document.write('</body></html>');
     mywindow.document.close(); 
     mywindow.focus(); 
     mywindow.print();
-    mywindow.close();
+    //mywindow.close();
     return true;
 }
