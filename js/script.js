@@ -1,4 +1,4 @@
-
+//ABRE EL CARRITO SUAVEMENTE
 (function(){
  
     $( "#cart" ).click(function() {
@@ -6,13 +6,14 @@
       });
     
   })();
-
+//SCROLL DE BOTON TIENDA
 $(".shop").click(function(event) {
     event.preventDefault();
     $('html, body').animate({
     scrollTop: $("#black").offset().top
     }, 2000);
 });
+//SCROLL DE BOTON SUBIR AL INICIO Q SE ENCUENTRA EN EL FOOTER
 $(".up-up").click(function(event) {
     event.preventDefault();
     $('html, body').animate({
@@ -28,7 +29,7 @@ const boton = document.querySelectorAll('button#agregar-carrito')
     boton.forEach(function (item) {
     
     item.addEventListener("click", capturar);
-})
+});
 //$("button #agregar-carrito").click(function (){
    // $(this).each(capturar);
 //});
@@ -58,10 +59,11 @@ function capturar(event){
     
     console.log(idProducto)
     revicion(idProducto);
-    //agregar();
+    
 };
 
-//------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY-----------------------------------------------------------
+//------------------ACA SE AGREGAN LOS PRODUCTOS Y SE COLOCAN EN UN ARRAY--------
+//SE CONTROLA EL ARRAY, SI EL PRODUCTO SE ENCUENTRA NO SE AGREGARA
 var baseDatos = [];
 
 function revicion (id){
@@ -75,11 +77,9 @@ function revicion (id){
        agregar();
    }
 
-}
+};
     
-
-
-
+//LUEGO DE SU REVICION SI LA CONDICION ES FALSA LO AGREGA
 function agregar(){
     baseDatos.push(nuevoProducto);
     localStorage.setItem('carritoDeCompras', JSON.stringify(baseDatos))
@@ -96,6 +96,7 @@ function agregar(){
    
 };
 
+//CONTROLA EL LOCAL STORAGE Y LO VUELVE A COLOCAR EN NUESTRO ARRAY
 revisarLocal();
 
 function revisarLocal() {
@@ -107,8 +108,9 @@ function revisarLocal() {
            console.log(nuevoProducto)
         })
     }
-}
+};
 
+//SUMA TODOS LOS PRODUCTOS DEL ARRAY Y SE VE REFLEJADO EN EL CARRITO
 function sumar () {
     
     conteoCant = baseDatos.length;
@@ -127,9 +129,8 @@ function sumar () {
 
 };
 
-
 //--------------------------------------------------------------------------------------------------------------
-//-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO Y POR ENDE SE BORRA DEL CARRITO---------
+//-------------ESTA FUNCION BORRA EL PRODUCTO QUE EL USUARIO NO QUIERE DEL CARRITO 
 
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
@@ -149,13 +150,9 @@ function borrar(producto){
     sumar();
     borrarFC(producto);
     
-}
-//------------------------------FACTURA DE COMPRA-----------------------
+};
 
-
-//--------------------------------------------------------------------------------------------------------------------------
-
-
+//SE TOMA LOS DATOS DEL CLIENTE Y SE ENVIA AL LOCAL STORAGE
 $("#registro").click(capturarUsuario);
 
 
@@ -174,7 +171,7 @@ function capturarUsuario(){
 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
-//------------------DATOS DEL USUARIO Y ALERTA SI HAY CARRITO---------------------------------------------------------------------------------
+//------------------DATOS DEL USUARIO TRAIDO DEL LOCAL STORAGE SI LA CONDICION SE CUMPLE MOSTRARA SU NOMBRE EN PANTALLA
 
 function datosUser(){
     usuario = localStorage.getItem('nombre');
@@ -193,6 +190,7 @@ function datosUser(){
     
 };
 
+//SI EL USURIO FINALIZA LA COMPRA O SALE DEL LOGIN SE BORRA TODO LOS DATOS GUARDADOS EN EL LOCAL STORAGE
 $(".btn-cerrar-modal").click(checout);
 
 function checout(){

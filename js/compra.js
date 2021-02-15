@@ -7,7 +7,7 @@ function factura(){
         `<tr class="pro" data-id="${prod.id}">
             <td>${prod.titulo}</td>
             <td class="precio" id="precioFc-${prod.id}">${prod.precio}</td>
-            <td><input type="number" class="cantidad" id="${prod.id}" value="1" min='1' max='5' onclick="veamos(event);"></td>
+            <td><input type="number" class="cantidad" id="${prod.id}"  min='1' max='5' value="1" onclick="veamos(event);"></td>
         </tr>`;
 
     });
@@ -75,6 +75,7 @@ function veamos (event) {
     var id = elemento.id
     //console.log(id)
     input = document.getElementById(`${id}`).value;
+    
     //console.log(input)
     precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
     //console.log(precioProdFc)
@@ -121,7 +122,7 @@ function imprim2(){
     var mywindow = window.open('', 'PRINT', 'height=700,width=900');
     mywindow.document.write('<html><head>');
 	mywindow.document.write('<style>#procesar-pago{background:url(../img/floating.cogs.svg);}.table{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.table th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:center;font-size:15px;}.table td{border:1px solid #ddd;text-align:left;padding:6px;}#seguir, #realizar, #impri, #aceptar, #cruz{display:none;}</style>');
-    mywindow.document.write('</head><body >');
+    mywindow.document.write('</head><body>');
     mywindow.document.write(document.getElementById('procesar-pago').innerHTML);
     mywindow.document.write('</body></html>');
     mywindow.document.close(); 
