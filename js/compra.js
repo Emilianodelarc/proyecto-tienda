@@ -133,6 +133,6 @@ function imprim2(){
     mywindow.document.close(); 
     mywindow.focus(); 
     mywindow.print();
-    //mywindow.close();
+    mywindow.close();
     return true;
 }

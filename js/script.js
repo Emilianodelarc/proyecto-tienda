@@ -21,8 +21,6 @@ $(".up-up").click(function(event) {
     }, 2000);
 });
 
-
-
 //---------------- ACA EMPIEZA TODO, BOTON AGREGAR CARRITO------------------------------------------------------------------------------
 const boton = document.querySelectorAll('button#agregar-carrito')
 
@@ -92,8 +90,7 @@ function agregar(){
    </li>`;
    
    sumar();
-   
-   
+
 };
 
 //CONTROLA EL LOCAL STORAGE Y LO VUELVE A COLOCAR EN NUESTRO ARRAY
@@ -134,6 +131,7 @@ function sumar () {
 
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
+    $(`li.clearfix #${producto}`).click('show')
 
     borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
     

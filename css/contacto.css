@@ -14,9 +14,7 @@ body{
 	margin-bottom:3em;
 	color:grey;
 	background: white;
-	-webkit-box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
-box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
+	box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
 }
 
 .contenedor-formulario form input{
@@ -47,6 +45,28 @@ box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
 	color:white!important;
 	font-size: 14px;
 }
+.promoVideo{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+.video{
+	margin-left: 50px;
+}
+.contenedor-formulario{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+  
+.mensjPromo{
+	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+	width: 273px;
+	border-radius: 14px;
+	padding: 9px;
+	margin-bottom: 17px;
+}
 
 @media (max-width:550px){
 	.contenedor-formulario form{
@@ -54,5 +74,25 @@ box-shadow: 1px 4px 18px -4px rgba(0,0,0,0.75);
 		margin:auto;
 		padding:1.5em 3em 2em 3em;
 		margin-bottom:1em;
+	}
+	.contenedor-formulario{
+		flex-direction: column;
+	}
+	.video{
+		width: 100%;
+		margin-left: 0%;
+	}
+	.mensjPromo{
+		width: 100%;
+	}
+}
+@media (max-width: 600px){
+	.contenedor-formulario{
+		flex-direction: column;
+	}
+}
+@media (max-width: 1200px){
+	.contenedor-formulario{
+		flex-direction: column;
 	}
 }

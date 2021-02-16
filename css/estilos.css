@@ -70,14 +70,16 @@ a:hover {
 
 .shopping-cart {
   margin: 20px 0;
-  float: right;
   background: white;
   width: 320px;
-  position: relative;
+  position: fixed;
   border-radius: 3px;
   padding: 20px;
   border: 1px solid black;
-  display: none
+  display: none;
+  z-index: 5000;
+  right: 11px;
+  top: 90px;
 }
 .shopping-cart-header {
   border-bottom: 1px solid #e8e8e8;
@@ -496,9 +498,6 @@ clear: both;
   padding: 15px 20px;
   border-radius: 0px;
 }
-.videoIndex{
-  width: 470px;
-}
 
 /* //popup */
 /*--/envio-grids--*/
@@ -806,28 +805,7 @@ h3.sub-headf {
   background: transparent;
 }
 /*-------//agregar carrito----*/
-/*--------Contacto-------*/
-.contenedor-formulario{
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-}
-.promoVideo{
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-.video{
-  margin-left: 50px;
-}
-.mensjPromo{
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  width: 273px;
-  border-radius: 14px;
-  padding: 9px;
-  margin-bottom: 17px;
-}
+/*--------Compra Factura-------*/
 .avisoFactu{
   color: red;
   text-align: center;
