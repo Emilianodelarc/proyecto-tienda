@@ -37,13 +37,12 @@ function compra() {
         else if(!email){
             document.getElementById('cuerpoModal').innerHTML= `No tenemos ningun dato de cliente, registrese e intente nuevamente!`
         }
-        else{
-            document.getElementById('cuerpoModal').innerHTML=`Nos pondremos en contacto por ${email}`
-        }
+        
     }
     else{
         remito++
-        document.getElementById('datTel').innerHTML = `Nos pondremos en contacto para coordinar la entrega, los mismo seran ajustados a la REGULACIÓN SANITARIA VIGENTE.`
+        document.getElementById('datTel').innerHTML = `Nos pondremos en contacto para coordinar la entrega, los mismo seran ajustados a la REGULACIÓN SANITARIA VIGENTE. <br> 
+                                                        **Para una mejor comunicacion Imprima su comprobante`
         document.getElementById('cuerpoModal').innerHTML = `Pronto recibirá su pedido, nos contactaremos al número ${telefono}, su remito es el N° ${remito}`
     };
 };
@@ -126,7 +125,7 @@ function sumaTotales(){
 function imprim2(){
     var mywindow = window.open('', 'PRINT', 'height=700,width=900');
     mywindow.document.write('<html><head>');
-	mywindow.document.write('<style>.table{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.table th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:center;font-size:15px;}.table td{border:1px solid #ddd;text-align:left;padding:6px;}#seguir, #realizar, #impri, #aceptar, #cruz{display:none;}</style>');
+	mywindow.document.write('<style>.table{width:100%;border-collapse:collapse;margin:16px 0 16px 0;}.table th{border:1px solid #ddd;padding:4px;background-color:#d4eefd;text-align:center;font-size:15px;}.table td{border:1px solid #ddd;text-align:center;padding:6px;}.cantidad{text-align:center;}#seguir, #realizar, #impri, #aceptar, #cruz{display:none;}.pie-factura{text-align: center;}</style>');
     mywindow.document.write('</head><body>');
     mywindow.document.write(document.getElementById('procesar-pago').innerHTML);
     mywindow.document.write('</body></html>');

@@ -558,19 +558,12 @@ clear: both;
     border: none;
     outline: none;
     letter-spacing: 2px;
-    -moz-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .btn.submit {
     background:  #356a90;
-    -moz-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     color: #fff;
     padding: 0.8em 3em;
@@ -578,8 +571,6 @@ clear: both;
     font-size: 0.9em;
     letter-spacing: 2px;
     font-weight: 600;
-    -moz-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
     box-shadow: 1px 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -806,6 +797,11 @@ h3.sub-headf {
 }
 /*-------//agregar carrito----*/
 /*--------Compra Factura-------*/
+
+.titulo-factura{
+  text-align: center;
+  color: white !important;
+}
 .avisoFactu{
   color: red;
   text-align: center;
@@ -814,9 +810,15 @@ h3.sub-headf {
 .botones-factura{
   justify-content: space-between;
 }
+.comprarButton{
+  color: white !important;
+}
 .cantidad{
   border: 1px solid;
   text-align: center;
+}
+.pie-factura{
+  display: none;
 }
 .img-factura-pie, .img-modal-body{
   width: 200px;
@@ -853,5 +855,25 @@ h3.sub-headf {
   }
   ul,li{
     display: inline-block;
+  }
+  .img-factura-pie{
+    display: none;
+  }
+  .barbijo{
+    width: 120px;
+  }
+  .shopping-cart{
+    width: 100%;
+    top: 180px;
+  }
+  .container{
+    width: 100%;
+  }
+  .btn.submit{
+     margin-top: 10px
+  }
+  .subscribe-sec input{
+    width: 200px;
+    padding-left: 0;
   }
 }
