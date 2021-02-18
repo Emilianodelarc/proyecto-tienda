@@ -31,7 +31,7 @@ function compra() {
     if(!telefono && telefono == null | telefono == ''){
         document.getElementById('datTel').innerHTML = `*Para hacer uso de este servicio, por favor debe <a href="#regis">Registrarse</a>`;
         factuComp = document.getElementById('listaProd');
-        if(factuComp.innerHTML === " " ){
+        if(factuComp.innerHTML == " " ){
             document.getElementById('cuerpoModal').innerHTML= `No hay nada en su factura`
         }
         else if(!email){
@@ -42,7 +42,7 @@ function compra() {
     else{
         remito++
         document.getElementById('datTel').innerHTML = `Nos pondremos en contacto para coordinar la entrega, los mismo seran ajustados a la REGULACIÓN SANITARIA VIGENTE. <br> 
-                                                        **Para una mejor comunicacion Imprima su comprobante`
+                                                        **Para una mejor comunicación futura, Imprima su comprobante`
         document.getElementById('cuerpoModal').innerHTML = `Pronto recibirá su pedido, nos contactaremos al número ${telefono}, su remito es el N° ${remito}`
     };
 };
@@ -65,11 +65,6 @@ function sumarFC(){;
     
 };
 
-
-//SE PUEDE CAMBIAR LA CANTIDAD DEL PRODUCTO
-//$('.cantidad').each(function () { 
-  // $(this).change(veamos)
-//})//
 //SE OBTIENE EL ID DEL INPUT QUE SE ESTA LLAMANDO Y SE TOMA SU VALOR
 function veamos (event) {
     var elemento = event.srcElement ? event.srcElement : event.target;

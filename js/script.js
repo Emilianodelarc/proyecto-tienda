@@ -1,3 +1,34 @@
+$(document).ready(function () {
+    var breakpoint = 840;
+  
+    //Si la pantalla es más pequeña que 840px de ancho, elimine todas las clases.
+    if ($(window).width() < breakpoint) {
+      $('.js-slidein').removeClass('js-slidein');
+    }
+  
+    // Compruebe cuál de los elementos de esta clase está visible en la página
+    $('.js-slidein').each(function (i) {
+      var bottomObject = $(this).offset().top;
+      var bottomWindow = $(window).scrollTop() + $(window).height();
+  
+      if (bottomWindow > bottomObject) {
+        $(this).removeClass('js-slidein');
+      }
+    });
+  
+    // Activar el efecto de deslizamiento en el desplazamiento
+    $(window).scroll(function () {
+      $('.js-slidein').each(function (i) {
+        var bottomObject = $(this).offset().top + $(this).outerHeight() / 3;
+        var bottomWindow = $(window).scrollTop() + $(window).height();
+  
+        if (bottomWindow > bottomObject) {
+          $(this).addClass('js-slidein-visible');
+        }
+      });
+    });
+  });
+  
 //ABRE EL CARRITO SUAVEMENTE
 (function(){
  
@@ -28,9 +59,7 @@ const boton = document.querySelectorAll('button#agregar-carrito')
     
     item.addEventListener("click", capturar);
 });
-//$("button #agregar-carrito").click(function (){
-   // $(this).each(capturar);
-//});
+
 //------------CAPTURO LOS PRODUCTOS -----------------------------------------------------------------------------------------------------
 
 function capturar(event){
@@ -131,8 +160,7 @@ function sumar () {
 
 function borrar(producto){
     var listaFunc = document.getElementById("listaPro");
-    $(`li.clearfix #${producto}`).click('show')
-
+   
     borrarElemento = document.querySelector("li.clearfix[data-id='"+producto+"']")
     
     listaFunc.removeChild(borrarElemento);
