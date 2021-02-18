@@ -1,17 +1,17 @@
 $(document).ready(function () {
-    var breakpoint = 840;
+    var tamañopantalla = 840;
   
     //Si la pantalla es más pequeña que 840px de ancho, elimine todas las clases.
-    if ($(window).width() < breakpoint) {
+    if ($(window).width() < tamañopantalla) {
       $('.js-slidein').removeClass('js-slidein');
     }
   
     // Compruebe cuál de los elementos de esta clase está visible en la página
     $('.js-slidein').each(function (i) {
-      var bottomObject = $(this).offset().top;
-      var bottomWindow = $(window).scrollTop() + $(window).height();
+      var objetoAbajo = $(this).offset().top;
+      var debajoWindow = $(window).scrollTop() + $(window).height();
   
-      if (bottomWindow > bottomObject) {
+      if (debajoWindow > objetoAbajo) {
         $(this).removeClass('js-slidein');
       }
     });
@@ -19,10 +19,10 @@ $(document).ready(function () {
     // Activar el efecto de deslizamiento en el desplazamiento
     $(window).scroll(function () {
       $('.js-slidein').each(function (i) {
-        var bottomObject = $(this).offset().top + $(this).outerHeight() / 3;
-        var bottomWindow = $(window).scrollTop() + $(window).height();
+        var objetoAbajo = $(this).offset().top + $(this).outerHeight() / 3;
+        var debajoWindow = $(window).scrollTop() + $(window).height();
   
-        if (bottomWindow > bottomObject) {
+        if (debajoWindow > objetoAbajo) {
           $(this).addClass('js-slidein-visible');
         }
       });
