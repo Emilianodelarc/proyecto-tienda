@@ -131,7 +131,7 @@ function revisarLocal() {
         carritoLocal.forEach((el)=>{
             nuevoProducto = el;
            agregar()
-           console.log(nuevoProducto)
+           
         })
     }
 };
@@ -226,5 +226,49 @@ function checout(){
 
 datosUser();
 
+function Productos (id,title,price,thumbnail){
+    this.id = id;
+    this.title= title;
+    this.price= price;
+    this.thumbnail = thumbnail;
+}
 
+//API DE MERCADO LIBRE, TRAE LOS PRODUCOS DE JOYERIA Y RELOJES
+productosPox = [];
 
+$(document).ready(function(){ 
+    $.get("https://api.mercadolibre.com/sites/MLA/search?category=MLA3937", //nombre del archivo en el servidor que procesa la llamada
+  
+  function(data, status){ 
+      //función que se ejecuta cuando la llamada regresa del servidor
+      console.log(data)
+      data.results.forEach((reloj) => {
+        productosPox.push(
+        new Productos(reloj.id, reloj.title, reloj.price, reloj.thumbnail)
+        )
+   });
+    }
+    )
+});
+
+$('#mostrar-nuevos').click(function(){
+    mostrarProductos(productosPox);
+})
+
+//CON LOS DATOS OBTENIDOS LOS MUESTRAS EN LA SECCION DE PROXIMAMENTE
+ const contenedorProductos = document.getElementById('contenedor-productos');
+
+function mostrarProductos(array){
+    array.forEach((productoNuevo)=>{
+        let div = document.createElement('div')
+        div.classList.add('producto1')
+        div.innerHTML += `
+                    <img src=${productoNuevo.thumbnail} alt="" class="img-fluid">
+                    <h3>${productoNuevo.title}</h3>
+                    <p class="precioProducto">Precio: $${productoNuevo.price}</p>
+                    
+        `
+        contenedorProductos.appendChild(div)
+    
+    })
+}    

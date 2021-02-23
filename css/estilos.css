@@ -11,6 +11,16 @@
 	font-family: 'Nunito', cursive;
 	
 }
+.js-slidein {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 300ms ease-in-out;
+}
+
+.js-slidein-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
 /*------ Nav------*/
 .nav {
   padding: 20px 0 40px 0;
@@ -405,6 +415,36 @@ clear: both;
 	padding-bottom:2em;
 }
 /*-------// galeria-----*/
+/*------Galeria Proximamente-----*/
+#contenedor-productos {
+  background: url(../img/wood.png);
+  max-width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+p {
+  line-height: 1.8;
+}
+.producto1 {
+  background-color: white;
+  text-align: center;
+  max-width: 30%;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 2px 6px 3px 3px rgba(0, 0, 0, 0.3);
+}
+.precioProducto {
+  font-weight: 700;
+}
+.boton-prox{
+  text-align: center;
+    margin-top: 70px
+}
+/*-------//galeria proximamente----*/
 /* popup */
 .popup-efecto {
   position: fixed;
@@ -827,6 +867,18 @@ h3.sub-headf {
   display: block;
   margin: auto;
 }
+.modal-title{
+  font-weight: 800;
+}
+.smart-forms button{
+  font-size: 1rem;
+}
+.smart-forms input{
+  font-size: 20px;
+}
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
 /*-----Responsive-----*/
 @media screen and (min-width: 768px){
 
@@ -877,14 +929,5 @@ h3.sub-headf {
     padding-left: 0;
   }
 }
-.js-slidein {
-  opacity: 0;
-  transform: translateY(100px);
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-}
 
-.js-slidein-visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+

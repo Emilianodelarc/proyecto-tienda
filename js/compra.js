@@ -130,3 +130,30 @@ function imprim2(){
     mywindow.close();
     return true;
 }
+
+//ENVIO DE EMAIL DEL COMPROBANTE DE PEDIDO
+enviameUnEmail = document.getElementById('enviar');
+enviameUnEmail.addEventListener('click', sendEmail);
+
+function sendEmail(event){
+    event.preventDefault();
+     sinEstilo= document.getElementById('botones-factura').style.display = 'none'
+     tablaEstilo = document.getElementById('lista-compra').style.background = "#74d2e7"
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "emilianodelarc@gmail.com",
+        Password : "489671191210C5D45261607704DD5539A200",
+        To : `${email}`,
+        From : "emilianodelarc@gmail.com",
+        Subject : "Comprabante compra",
+        Body :  document.getElementById('procesar-pago').innerHTML,
+                
+        
+    }).then(function(message){
+     alert('Enviado, Recuerda revisar la carpeta spam'), document.getElementById('botones-factura').style.display = 'flex',
+     document.getElementById('lista-compra').style.background = "none"
+    });
+    
+}
+
+  
