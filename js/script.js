@@ -271,4 +271,4 @@ function mostrarProductos(array){
         contenedorProductos.appendChild(div)
     
     })
-}    
+};
