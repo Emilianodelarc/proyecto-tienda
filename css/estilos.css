@@ -184,7 +184,9 @@ clear: both;
 
 
 /*---------- Banner ------*/
-
+.banner-info.container-fluid{
+  background: #74d2e7;
+}
 .banner-left-info-1 {
   margin-top: 7em;
 }
