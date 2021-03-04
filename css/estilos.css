@@ -29,6 +29,12 @@
 	background: #f8f8f8;
   font-size: 16px;
   display: block;
+  top: 2px;
+}
+.nav-fixed{
+  position: fixed;
+  z-index: 10000;
+  top: 0;
 }
 .navbar-left {
 	float: left;
@@ -87,7 +93,7 @@ a:hover {
   padding: 20px;
   border: 1px solid black;
   display: none;
-  z-index: 5000;
+  z-index: 10000;
   right: 11px;
   top: 90px;
 }
@@ -414,6 +420,11 @@ clear: both;
 	background-image: linear-gradient(to top right, rgba(0,0,0,.9), rgba(0,0,25,.55), rgba(0,0,0,.9)), url(https://images.unsplash.com/photo-1604147495798-57beb5d6af73?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
 	padding-bottom:2em;
 }
+#agregar-carrito{
+  outline: none;
+  background: none;
+}
+
 /*-------// galeria-----*/
 /*------Galeria Proximamente-----*/
 #contenedor-productos {
@@ -832,9 +843,7 @@ h3.sub-headf {
   color: red;
   padding-bottom: 15px;
 }
-.aCarr{
-  background: transparent;
-}
+
 /*-------//agregar carrito----*/
 /*--------Compra Factura-------*/
 

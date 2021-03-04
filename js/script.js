@@ -1,3 +1,9 @@
+//scroll del menu
+$(document).ready(function(){
+   $(window).on('scroll', function(){
+        $('.nav').addClass('nav-fixed');
+   })
+})
 $(document).ready(function () {
     var tamañopantalla = 840;
   
@@ -28,7 +34,7 @@ $(document).ready(function () {
       });
     });
   });
-  
+
 //ABRE EL CARRITO SUAVEMENTE
 (function(){
  
@@ -96,7 +102,7 @@ var baseDatos = [];
 function revicion (id){
 
    if( baseDatos.find(producto => producto.id === id)){
-    document.getElementById("alert-modalAlerta").className =
+    document.getElementById('alert-modalAlerta').className =
     "alert alert-danger alert-dismissible fade show";
     document.getElementById("alert-modalAlerta-texto").innerText =
     "La cantidad podrá modificarla en la factura, al finalizar su selección";
