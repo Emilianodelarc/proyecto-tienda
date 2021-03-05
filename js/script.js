@@ -243,10 +243,9 @@ function Productos (id,title,price,thumbnail){
 productosPox = [];
 
 $(document).ready(function(){ 
-    $.get("https://api.mercadolibre.com/sites/MLA/search?category=MLA3937", //nombre del archivo en el servidor que procesa la llamada
+    $.get("https://api.mercadolibre.com/sites/MLA/search?category=MLA3937", 
   
   function(data, status){ 
-      //función que se ejecuta cuando la llamada regresa del servidor
       data.results.forEach((reloj) => {
         productosPox.push(
         new Productos(reloj.id, reloj.title, reloj.price, reloj.thumbnail)
