@@ -90,7 +90,7 @@ function capturar(event){
 
     nuevoProducto = new Producto (imagenCapturar, tituloCapturar,precioCaptu, idProducto);
     
-    console.log(idProducto)
+    
     revicion(idProducto);
     
 };
@@ -207,7 +207,7 @@ function capturarUsuario(){
 
 function datosUser(){
     usuario = localStorage.getItem('nombre');
-    //console.log(usuario);
+    
     if(!usuario){
         document.getElementById("nombreUsuario1").innerHTML = '<li>BIENVENIDO! veo que no estas Registrado!</li>'
     }
@@ -247,7 +247,6 @@ $(document).ready(function(){
   
   function(data, status){ 
       //función que se ejecuta cuando la llamada regresa del servidor
-      console.log(data)
       data.results.forEach((reloj) => {
         productosPox.push(
         new Productos(reloj.id, reloj.title, reloj.price, reloj.thumbnail)

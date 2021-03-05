@@ -69,15 +69,15 @@ function sumarFC(){;
 function veamos (event) {
     var elemento = event.srcElement ? event.srcElement : event.target;
     var id = elemento.id
-    //console.log(id)
+
     input = document.getElementById(`${id}`).value;
     document.getElementById(`nuevoInput${id}`).innerHTML= `
     <input type="number" class="cantidad" id="${id}"  min='1' max='5' value="${input}" onchange="veamos(event);">`
 
     
-    //console.log(input)
+
     precioProdFc = document.getElementById(`precioFc-${id}`).innerText;
-    //console.log(precioProdFc)
+
     cambioPrecioTabla(id)
 };
 //YA OBTENIDO SU ID SE RECORRE EL ARRAY CON LA CONDICION Q SI ES IGUAL TRAIGA SU PRECIO Y SE LO MULTIPLICA POR SU CANTIDAD
@@ -85,7 +85,7 @@ function cambioPrecioTabla(id_id){
     for(var i = 0; i< baseDatos.length; i++){
         if(baseDatos[i].id == id_id){
             prueba = baseDatos[i].precio;
-            //console.log(prueba);
+
             prueba2 = prueba * input;
             document.getElementById(`precioFc-${id_id}`).innerHTML= prueba2;
 
@@ -106,8 +106,7 @@ function sumaPreCAnt(){
 
      suma = data.reduce(function(a,b){ return a+b; },0);
 
-    //console.log(data);
-    //console.log(suma);
+
     sumaTotales();
 }
 //REALIA LA SUMA CORRECTA SEGUN LAS UNIDADES A COMPRAR
